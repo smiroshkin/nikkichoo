@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>НатуралФут - Босоногая обувь из натуральных материалов</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #2c2c2c;
+      background: #fefefe;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #f5f1eb 0%, #e8ddd4 100%);
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 0;
+      z-index: 100;
+      transition: all 0.3s;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #8b5a3c;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2c2c2c;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #8b5a3c;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero-text {
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      font-weight: 300;
+      color: #2c2c2c;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero-text .accent {
+      color: #8b5a3c;
+      font-weight: 600;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: #8b5a3c;
+      color: white;
+      padding: 15px 35px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: #704832;
+      transform: translateY(-2px);
+    }
+
+    .hero-image {
+      position: relative;
+      animation: fadeInRight 1s ease;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+    }
+
+    /* Features */
+    .features {
+      padding: 100px 0;
+      background: white;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      font-weight: 300;
+      color: #2c2c2c;
+      margin-bottom: 60px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: 30px;
+      border-radius: 12px;
+      background: #faf8f5;
+      transition: transform 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: #8b5a3c;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: white;
+      font-size: 24px;
+    }
+
+    .feature-card h3 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #2c2c2c;
+      margin-bottom: 15px;
+    }
+
+    .feature-card p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Products */
+    .products {
+      padding: 100px 0;
+      background: #f9f7f4;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    }
+
+    .product-image {
+      position: relative;
+      overflow: hidden;
+      height: 280px;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.1);
+    }
+
+    .product-info {
+      padding: 30px;
+    }
+
+    .product-info h3 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #2c2c2c;
+      margin-bottom: 10px;
+    }
+
+    .product-price {
+      font-size: 20px;
+      font-weight: 600;
+      color: #8b5a3c;
+      margin-bottom: 15px;
+    }
+
+    .product-description {
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    /* Reviews */
+    .reviews {
+      padding: 100px 0;
+      background: white;
+    }
+
+    .reviews-slider {
+      position: relative;
+      max-width: 800px;
+      margin: 60px auto 0;
+      overflow: hidden;
+    }
+
+    .reviews-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .review-card {
+      min-width: 100%;
+      padding: 40px;
+      text-align: center;
+      background: #faf8f5;
+      border-radius: 15px;
+      margin: 0 10px;
+    }
+
+    .review-text {
+      font-size: 18px;
+      font-style: italic;
+      color: #2c2c2c;
+      margin-bottom: 25px;
+      line-height: 1.7;
+    }
+
+    .review-author {
+      font-weight: 600;
+      color: #8b5a3c;
+    }
+
+    .slider-controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .slider-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ddd;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .slider-dot.active {
+      background: #8b5a3c;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #8b5a3c 0%, #704832 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 36px;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #8b5a3c;
+      padding: 15px 35px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      background: #f5f5f5;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer {
+      background: #2c2c2c;
+      color: white;
+      padding: 60px 0 30px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #8b5a3c;
+    }
+
+    .footer-section p, .footer-section a {
+      color: #ccc;
+      text-decoration: none;
+      line-height: 1.8;
+    }
+
+    .footer-section a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #444;
+      padding-top: 30px;
+      text-align: center;
+      color: #999;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 36px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="logo">НатуралФут</div>
+      <ul class="nav-links">
+        <li><a href="#features">Преимущества</a></li>
+        <li><a href="#products">Модели</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="header">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Естественная <span class="accent">свобода</span> для ваших ног</h1>
+        <p>Создаём физиологичную обувь из натуральных материалов, чтобы каждый шаг приносил радость и здоровье.</p>
+        <a href="#products" class="btn-primary">Выбрать модель</a>
+      </div>
+      <div class="hero-image">
+        <img src="hero-shoes.jpg" alt="Босоногая обувь НатуралФут">
+      </div>
+    </div>
+  </header>
+
+  <section class="features" id="features">
+    <div class="container">
+      <h2 class="section-title">Почему выбирают НатуралФут?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🌿</div>
+          <h3>100% натуральные материалы</h3>
+          <p>Используем только качественную кожу и органические материалы без химических добавок</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👣</div>
+          <h3>Анатомическая форма</h3>
+          <p>Широкий носок и естественная форма колодки позволяют стопе находиться в комфортном положении</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💪</div>
+          <h3>Укрепляет мышцы стоп</h3>
+          <p>Тонкая гибкая подошва активирует работу мышц, улучшая кровообращение и осанку</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>Стильный дизайн</h3>
+          <p>Минималистичный дизайн подходит к любому стилю одежды — от casual до делового</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products" id="products">
+    <div class="container">
+      <h2 class="section-title">Наши модели</h2>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="model-grove.jpg" alt="Модель Grove">
+          </div>
+          <div class="product-info">
+            <h3>Grove</h3>
+            <div class="product-price">12 900 ₽</div>
+            <p class="product-description">Классические ботинки из мягкой кожи. Идеальны для городских прогулок и офиса.</p>
+            <a href="#" class="btn-primary">Заказать</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img src="model-breeze.jpg" alt="Модель Breeze">
+          </div>
+          <div class="product-info">
+            <h3>Breeze</h3>
+            <div class="product-price">10 400 ₽</div>
+            <p class="product-description">Лёгкие кроссовки для активного образа жизни. Дышащий материал и максимальный комфорт.</p>
+            <a href="#" class="btn-primary">Заказать</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img src="model-aurora.jpg" alt="Модель Aurora">
+          </div>
+          <div class="product-info">
+            <h3>Aurora</h3>
+            <div class="product-price">14 200 ₽</div>
+            <p class="product-description">Элегантные туфли для особых случаев. Сочетают в себе красоту и здоровье стоп.</p>
+            <a href="#" class="btn-primary">Заказать</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <h2 class="section-title">Отзывы наших клиентов</h2>
+      <div class="reviews-slider">
+        <div class="reviews-track">
+          <div class="review-card">
+            <p class="review-text">"После перехода на НатуралФут забыла, что такое усталость ног. Хожу в них с утра до вечера и чувствую себя прекрасно!"</p>
+            <p class="review-author">— Елена, 32 года</p>
+          </div>
+          <div class="review-card">
+            <p class="review-text">"Сначала сомневался в необычной форме, но теперь понимаю — это именно то, что нужно моим ногам. Спина перестала болеть!"</p>
+            <p class="review-author">— Михаил, 45 лет</p>
+          </div>
+          <div class="review-card">
+            <p class="review-text">"Качество материалов просто восхищает. Кожа мягкая, дышащая, а главное — ноги чувствуют себя свободно."</p>
+            <p class="review-author">— Анна, 28 лет</p>
+          </div>
+        </div>
+        <div class="slider-controls">
+          <div class="slider-dot active"></div>
+          <div class="slider-dot"></div>
+          <div class="slider-dot"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Сделайте первый шаг к здоровью ваших ног</h2>
+      <p>Закажите босоногую обувь и почувствуйте разницу уже сегодня</p>
+      <a href="#products" class="btn-secondary">Выбрать модель</a>
+    </div>
+  </section>
+
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>НатуралФут</h3>
+          <p>Создаём босоногую обувь с любовью к вашему здоровью и комфорту.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <p>Телефон: +7 (495) 123-45-67</p>
+          <p>Email: info@naturalfoot.ru</p>
+          <p>Telegram: @naturalfoot_bot</p>
+        </div>
+        <div class="footer-section">
+          <h3>Соцсети</h3>
+          <p><a href="#">Instagram</a></p>
+          <p><a href="#">ВКонтакте</a></p>
+          <p><a href="#">YouTube</a></p>
+        </div>
+        <div class="footer-section">
+          <h3>Информация</h3>
+          <p><a href="#">Доставка и оплата</a></p>
+          <p><a href="#">Возврат товара</a></p>
+          <p><a href="#">Размерная сетка</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 НатуралФут. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Reviews slider
+    const track = document.querySelector('.reviews-track');
+    const dots = document.querySelectorAll('.slider-dot');
+    let currentSlide = 0;
+
+    function showSlide(n) {
+      track.style.transform = `translateX(-${n * 100}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[n].classList.add('active');
+      currentSlide = n;
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => showSlide(index));
+    });
+
+    // Auto-slide reviews
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % dots.length;
+      showSlide(currentSlide);
+    }, 5000);
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.nav');
+      if (window.scrollY > 100) {
+        nav.style.background = 'rgba(255,255,255,0.98)';
+      } else {
+        nav.style.background = 'rgba(255,255,255,0.95)';
+      }
+    });
+  </script>
+
+</body>
+</html>
