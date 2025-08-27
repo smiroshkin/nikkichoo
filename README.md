@@ -2,7 +2,7 @@
     <a href="https://clothing-fv.netlify.app" target="_blank">
       <img src="design/preview.png" alt="Project Banner">
     </a>
-  <h3 align="center">Clothing Shop</h3>
+  <h3 align="center">Barefoot Shop</h3>
 </div>
 
 ## <br /> 📋 <a name="table">Table of Contents</a>
