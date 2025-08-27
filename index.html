@@ -1,288 +1,376 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Осень – время обновления | BASARAB</title>
-    <meta name="description" content="Интернет-магазин BASARAB - качественная кожаная обувь ручной работы из натуральных материалов. Доставка по России.">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-top">
-                <div class="logo">
-                    <h1>BASARAB</h1>
-                </div>
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="#" class="nav-link">Новинки</a></li>
-                        <li><a href="#" class="nav-link">В образах</a></li>
-                        <li><a href="#" class="nav-link">Для него</a></li>
-                        <li><a href="#" class="nav-link">Фабрика</a></li>
-                        <li><a href="#" class="nav-link">Новости</a></li>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+        <!--=============== REMIXICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        <!--=============== SWIPER CSS ===============-->
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <title>Clothing Shop</title>
+    </head>
+    <body>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">
+                    Shop.
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#home" class="nav__link active-link">
+                                <i class="ri-home-line"></i>
+                                <span>Home</span>
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#new" class="nav__link">
+                                <i class="ri-price-tag-3-line"></i>
+                                <span>New</span>
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#collection" class="nav__link">
+                                <i class="ri-compass-line"></i>
+                                <span>Collection</span>
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#products" class="nav__link">
+                                <i class="ri-t-shirt-line"></i>
+                                <span>Products</span>
+                            </a>
+                        </li>
                     </ul>
-                </nav>
-                <div class="header-actions">
-                    <button class="search-btn">🔍</button>
-                    <button class="cart-btn">🛒</button>
                 </div>
-            </div>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <h2 class="hero-title">ОСЕНЬ – ВРЕМЯ ОБНОВЛЕНИЯ</h2>
-                <div class="hero-buttons">
-                    <a href="#" class="btn btn-large">СМОТРЕТЬ КОЛЛЕКЦИЮ</a>
-                    <a href="#" class="btn btn-large btn-outline">ЖЕНСКАЯ КОЛЛЕКЦИЯ</a>
-                    <a href="#" class="btn btn-large btn-outline">МУЖСКАЯ КОЛЛЕКЦИЯ</a>
-                </div>
-            </div>
-        </div>
-    </section>
+                <!-- Theme change button -->
+                <i class="ri-moon-line change-theme" id="theme-button"></i>
+            </nav>
+        </header>
 
-    <!-- New Products Section -->
-    <section class="products-section">
-        <div class="container">
-            <h3 class="section-title">НОВИНКИ</h3>
-            <div class="products-grid" id="products-grid">
-                <!-- Товары будут добавлены через JavaScript -->
-            </div>
-        </div>
-    </section>
+        <!--==================== MAIN ====================-->
+        <main class="main">
+            <!--==================== HOME ====================-->
+            <section class="home section" id="home">
+                <div class="home__container container grid">
+                    <div class="home__data">
+                        <h1 class="home__title">
+                            New Clothing <br>
+                            Collection
+                        </h1>
+    
+                        <p class="home__description">
+                            The new collection of clothing from <br>
+                            the best brands this year.
+                        </p>
 
-    <!-- Promotions Section -->
-    <section class="promotions-section">
-        <div class="container">
-            <h3 class="section-title">АКЦИИ И СПЕЦПРЕДЛОЖЕНИЯ</h3>
-            <div class="promotion-card">
-                <div class="promotion-content">
-                    <h4>Подарочный сертификат</h4>
-                    <div class="promotion-actions">
-                        <a href="#" class="btn btn-small">ПОДРОБНЕЕ</a>
-                        <a href="#" class="btn btn-small btn-outline">ВСЕ АКЦИИ</a>
+                        <a href="#new" class="button__link">
+                            Explore <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </div>
+
+                    <div class="home__images">
+                        <img src="assets/img/home1.png" alt="home image">
+                        <img src="assets/img/home2.png" alt="home image">
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Best Sellers Section -->
-    <section class="bestsellers-section">
-        <div class="container">
-            <h3 class="section-title">ХИТЫ ПРОДАЖ</h3>
-            <div class="products-grid" id="bestsellers-grid">
-                <!-- Хиты продаж будут добавлены через JavaScript -->
-            </div>
-        </div>
-    </section>
+            <!--==================== NEW ====================-->
+            <section class="new section" id="new">
+                <h2 class="section__title">
+                    New Categories
+                </h2>
 
-    <!-- Advantages Section -->
-    <section class="advantages-section">
-        <div class="container">
-            <div class="advantages-header">
-                <h3 class="section-title">НАШИ ПРЕИМУЩЕСТВА</h3>
-                <h4 class="advantages-subtitle">ОСОБЫЙ ПОДХОД</h4>
-            </div>
-            <div class="advantages-content">
-                <p>Мы используем только натуральные материалы - кожу, нубук, замшу, кожподкладку, байку. Все те материалы, которые тысячелетиями доказали свою высокую степень комфорта, удобства и износостойкость. Изделия из натуральных материалов является признаком высокого вкуса, статуса жизни и внимательного отношения к себе.</p>
-                
-                <p>Заказывать обувь BASARAB онлайн легко! Так же ее можно примерить при получении в пункте выдачи или при курьере. Если пара не подошла, вы просто ее не забираете, мы быстро обменяем ее на другую или оформим возврат.</p>
-                
-                <p>Доставка и обмен (при наличии не подошедшего товара) осуществляется Бесплатно для большинства регионов России, кроме Калининграда, Сибирского и Дальневосточного федеральных округов.</p>
-                
-                <p>При каждом заказе клиенты BASARAB получают Бесплатную персональную консультацию. У Вас не останется вопросов, как оформить заказ, какой размер или модель подобрать именно для Вашей стопы, любой из Ваших вопросов мы берём на себя.</p>
-            </div>
-        </div>
-    </section>
+                <div class="new__container container grid">
+                    <article class="new__card">
+                        <img src="assets/img/new1.png" alt="new image" class="new__img">
 
-    <!-- Reviews Section -->
-    <section class="reviews-section">
-        <div class="container">
-            <h3 class="section-title">ОТЗЫВЫ</h3>
-            <div class="reviews-grid">
-                <div class="review-item">
-                    <div class="review-product">Сабо из фактурной кожи бордо на кожаной подкладке</div>
-                    <div class="review-author">Наталья</div>
-                    <div class="review-text">Сами по себе сабо очень классные, мягкие, приятные. Но мне показались очень массивными на ноге, поэтому сделала выбор в пользу другой модели, более изящной (но тоже BASARAB, благо выбор большой)❤️</div>
-                </div>
-                
-                <div class="review-item">
-                    <div class="review-product">Туфли замшевые коричневые (кофе) на кожаной подкладке</div>
-                    <div class="review-author">Евгения</div>
-                    <div class="review-text">Добрый день! Я уже успела погулять по Питеру в моих красивых, стильных и очень комфортных башмачках от BASARAB. Я очень довольна! Благодарю! Желаю Вам открыть магазин в Питере! Очень надо))</div>
-                </div>
-                
-                <div class="review-item">
-                    <div class="review-product">Кроссовки кожаные комбинированные на кожаной подкладке</div>
-                    <div class="review-author">Мария Кузнецова</div>
-                    <div class="review-text">Это любовь с первого взгляда! Спасибо BASARAB за возможность носить качественную, удобную и стильную обувь. Хожу в них очень много, не снимая и ноги не устают. Даже на фотосессию надела, они уже часть меня!</div>
-                </div>
-            </div>
-        </div>
-    </section>
+                        <a href="#" class="new__link">
+                            <div class="new__data">
+                                <h2 class="new__title">
+                                    Hoodie & Sweatshirt
+                                </h2>
+                                <span class="new__subtitle">
+                                    Winter collection
+                                </span>
+                            </div>
 
-    <!-- Social Section -->
-    <section class="social-section">
-        <div class="container">
-            <div class="social-content">
-                <h3>НАШИ СОЦСЕТИ</h3>
-                <p>ДЕЛИТЕСЬ СВОИМИ<br>ОБРАЗАМИ<br>С ОБУВЬЮ<br>BASARAB В СОЦСЕТЯХ<br>С #BASARAB</p>
-                <div class="social-links">
-                    <a href="#" class="social-link">Telegram</a>
-                    <a href="#" class="social-link">Youtube</a>
-                    <a href="#" class="social-link">Vkontakte</a>
-                </div>
-            </div>
-        </div>
-    </section>
+                            <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </article>
 
-    <!-- Blog Section -->
-    <section class="blog-section">
-        <div class="container">
-            <h3 class="section-title">БЛОГ BASARAB</h3>
-            <div class="blog-grid">
-                <div class="blog-item">
-                    <div class="blog-category">Статьи</div>
-                    <div class="blog-date">22 ЯНВАРЯ</div>
-                    <div class="blog-title">ОБУВНОЙ ЭТИКЕТ</div>
-                </div>
-                
-                <div class="blog-item">
-                    <div class="blog-category">Статьи</div>
-                    <div class="blog-date">8 ЯНВАРЯ</div>
-                    <div class="blog-title">БРОГИ. НЕМНОГО ИСТОРИИ</div>
-                </div>
-                
-                <div class="blog-item">
-                    <div class="blog-category">Статьи</div>
-                    <div class="blog-date">7 ДЕКАБРЯ</div>
-                    <div class="blog-title">Как выбрать зимнюю обувь</div>
-                </div>
-                
-                <div class="blog-item">
-                    <div class="blog-category">Правила ухода</div>
-                    <div class="blog-date">1 НОЯБРЯ</div>
-                    <div class="blog-title">Уход за обувью</div>
-                </div>
-            </div>
-            
-            <div class="ceo-section">
-                <p>BASARAB — это не просто обувная компания! Это целая идеология. Это культура и отношения с нашими клиентами. Любовь к своему делу и особое восприятие мира через соприкосновение с нашими ценностями. Через наш товар и сервис мы погружаем каждого клиента в этот мир. Мир, который создается для вас каждый день, как создается BASARAB.</p>
-                <div class="ceo-signature">
-                    <strong>INNA BASARAB</strong><br>
-                    <span>CEO</span>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <article class="new__card">
+                        <img src="assets/img/new2.png" alt="new image" class="new__img">
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-newsletter">
-                    <h4>ПОКУПАТЕЛЯМ</h4>
-                    <ul>
-                        <li><a href="#">Как подобрать размер</a></li>
-                        <li><a href="#">Как оформить заказ</a></li>
-                        <li><a href="#">Доставка и оплата</a></li>
-                        <li><a href="#">Обмен и возврат</a></li>
-                        <li><a href="#">Проверить статус заказа</a></li>
-                        <li><a href="#">Вопросы и ответы</a></li>
-                        <li><a href="#">Программа лояльности</a></li>
-                    </ul>
+                        <a href="#" class="new__link">
+                            <div class="new__data">
+                                <h2 class="new__title">
+                                    Pants & Jackets
+                                </h2>
+                                <span class="new__subtitle">
+                                    Winter collection
+                                </span>
+                            </div>
+
+                            <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </article>
+
+                    <article class="new__card">
+                        <img src="assets/img/new3.png" alt="new image" class="new__img">
+
+                        <a href="#" class="new__link">
+                            <div class="new__data">
+                                <h2 class="new__title">
+                                    Coats & Coat Sets
+                                </h2>
+                                <span class="new__subtitle">
+                                    Winter collection
+                                </span>
+                            </div>
+
+                            <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </article>
+                </div>
+            </section>
+
+            <!--==================== COLLECTION ====================-->
+            <section class="collection section" id="collection">
+                <div class="collection__container container">
+                    <div class="collection__explore">
+                        <div class="collection__data-men">
+                            <h2 class="collection__title">
+                                Men <br>
+                                Collection
+                            </h2>
+                            <a href="#" class="button__link">
+                                Explore Clothes  <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+
+                        <img src="assets/img/collection1.png" alt="collection image">
+                    </div>
+
+                    <div class="collection__explore">
+                        <img src="assets/img/collection2.png" alt="collection image">
+
+                        <div class="collection__data-women">
+                            <h2 class="collection__title">
+                                Women <br>
+                                Collection
+                            </h2>
+                            <a href="#" class="button__link">
+                                Explore Clothes  <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>                 
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== PRODUCTS ====================-->
+            <section class="products section" id="products">
+                <h2 class="section__title">
+                    Best Products
+                </h2>
+
+                <div class="products__container container swiper">
+                    <div class="swiper-wrapper">
+                        <article class="products__card swiper-slide">
+                            <img src="assets/img/product1.png" alt="product image" class="products__img">
+
+                            <h2 class="products__title">
+                                Gotland black Jacket
+                            </h2>
+                            <span class="products__price">
+                                $124.99
+                            </span>
+                        </article>
+
+                        <article class="products__card swiper-slide">
+                            <img src="assets/img/product2.png" alt="product image" class="products__img">
+
+                            <h2 class="products__title">
+                                Black Sports Shorts
+                            </h2>
+                            <span class="products__price">
+                                $34.99
+                            </span>
+                        </article>
+
+                        <article class="products__card swiper-slide">
+                            <img src="assets/img/product3.png" alt="product image" class="products__img">
+
+                            <h2 class="products__title">
+                                Knox Quilted Jacket
+                            </h2>
+                            <span class="products__price">
+                                $97.99
+                            </span>
+                        </article>
+
+                        <article class="products__card swiper-slide">
+                            <img src="assets/img/product4.png" alt="product image" class="products__img">
+
+                            <h2 class="products__title">
+                                Blue Sport Pants
+                            </h2>
+                            <span class="products__price">
+                                $69.99
+                            </span>
+                        </article>
+                    </div>
+
+                    <div class="swiper-button-next">
+                        <i class="ri-arrow-right-line"></i>
+                    </div>
+
+                    <div class="swiper-button-prev">
+                        <i class="ri-arrow-left-line"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== BRANDS ====================-->
+            <section class="brand section">
+                <h2 class="section__title">
+                    Brands We Sell
+                </h2>
+
+                <div class="brand__container container grid">
+                    <img src="assets/img/logo1.png" alt="logo image" class="brand__img">
+                    <img src="assets/img/logo2.png" alt="logo image" class="brand__img">
+                    <img src="assets/img/logo3.png" alt="logo image" class="brand__img">
+                    <img src="assets/img/logo4.png" alt="logo image" class="brand__img">
+                </div>
+            </section>
+        </main>
+
+        <!--==================== FOOTER ====================-->
+        <footer class="footer section">
+            <div class="footer__container container grid">
+                <div>
+                    <a href="#" class="footer__logo">
+                        Shop.
+                    </a>
                     
-                    <div class="newsletter-form">
-                        <h5>Подпишись на рассылку</h5>
-                        <form>
-                            <input type="email" placeholder="Email">
-                            <button type="submit">Подписаться</button>
-                            <label>
-                                <input type="checkbox" required>
-                                Согласен на обработку персональных данных
-                            </label>
-                        </form>
-                    </div>
+                    <p class="footer__description">
+                        Committed to bringing you the <br> 
+                        best clothing from popular <br>
+                        brands.
+                    </p>
                 </div>
-                
-                <div class="footer-catalog">
-                    <h4>Каталог товаров</h4>
-                    <ul>
-                        <li><a href="#">Новинки</a></li>
-                        <li><a href="#">Скидки</a></li>
-                        <li><a href="#">Женская обувь</a></li>
-                        <li><a href="#">Мужская обувь</a></li>
-                        <li><a href="#">Аксессуары</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-company">
-                    <h4>О компании</h4>
-                    <ul>
-                        <li><a href="#">Контакты</a></li>
-                        <li><a href="#">Результаты СОУТ</a></li>
-                        <li><a href="#">Политика обработки данных</a></li>
-                        <li><a href="#">Публичная оферта</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-blog">
-                    <h4>Блог</h4>
-                    <ul>
-                        <li><a href="#">Статьи</a></li>
-                        <li><a href="#">Правила ухода</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-help">
-                    <h4>Помощь</h4>
-                    <ul>
-                        <li><a href="#">Как подобрать размер</a></li>
-                        <li><a href="#">Как оформить заказ</a></li>
-                        <li><a href="#">Оплата и доставка</a></li>
-                        <li><a href="#">Как вернуть</a></li>
-                        <li><a href="#">Статус заказа</a></li>
-                        <li><a href="#">Предзаказ</a></li>
-                        <li><a href="#">Программа лояльности</a></li>
-                        <li><a href="#">Вопросы и ответы</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <div class="footer-contacts">
-                    <div class="contact-item">
-                        <strong>8 (863) 333-27-47</strong><br>
-                        <a href="mailto:info@basarab.ru">info@basarab.ru</a>
-                    </div>
-                </div>
-                
-                <div class="footer-social">
-                    <a href="#" class="social-item">WhatsApp +79094418800</a>
-                    <a href="#" class="social-item">Вконтакте basarab_ru</a>
-                    <a href="#" class="social-item">Telegram basarab_ru</a>
-                    <a href="#" class="social-item">YouTube @basarab.5946</a>
-                </div>
-                
-                <div class="footer-copyright">
-                    <p>©2025 BASARAB</p>
-                    <p>Design by Origin</p>
-                    <p>Поддержка сайта: kokoc.tech</p>
-                </div>
-            </div>
-        </div>
-    </footer>
 
-    <script src="js/main.js"></script>
-</body>
+                <div class="footer__content">
+                    <div>
+                        <h3 class="footer__title">
+                            Company
+                        </h3>
+
+                        <ul class="footer__links">
+                            <li>
+                                <a href="#" class="footer__link">Shop</a>
+                            </li>
+                            <li>
+                                <a href="#" class="footer__link">Category</a>
+                            </li>
+                            <li>
+                                <a href="#" class="footer__link">Contact info</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="footer__title">
+                            Blog
+                        </h3>
+
+                        <ul class="footer__links">
+                            <li>
+                                <a href="#" class="footer__link">Events</a>
+                            </li>
+                            <li>
+                                <a href="#" class="footer__link">Popular news</a>
+                            </li>
+                            <li>
+                                <a href="#" class="footer__link">Recent news</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="footer__title">
+                            Office
+                        </h3>
+
+                        <p class="footer__information">
+                            Monday - Saturday <br>
+                            9AM - 10PM
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="footer__title">
+                            Contact us
+                        </h3>
+
+                        <ul class="footer__social">
+                            <!-- Insert your name from your facebook page -->
+                            <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <!-- Insert your name from your instagram page -->
+                            <a href="https://www.instagram.com/" target="_blank" class="footer__social-link">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                            <!-- Insert a real number plus country code -->
+                            <a href="https://api.whatsapp.com/send?phone=51123456789&text=Hello, more information!" target="_blank" class="footer__social-link">
+                                <i class="ri-whatsapp-line"></i>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__info container">
+                <span class="footer__copy">
+                    &#169; Copyright. All rigths reserved
+                </span>
+
+                <a href="#" class="footer__privacy">
+                    Terms & Conditions
+                </a>
+            </div>
+        </footer>
+
+        <!--========== SCROLL UP ==========-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="ri-arrow-up-line"></i>
+        </a>
+        
+        <!--=============== SCROLLREVEAL ===============-->
+        <script src="assets/js/scrollreveal.min.js"></script>
+
+        <!--=============== SWIPER JS ===============-->
+        <script src="assets/js/swiper-bundle.min.js"></script>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="assets/js/main.js"></script>
+    </body>
 </html>
