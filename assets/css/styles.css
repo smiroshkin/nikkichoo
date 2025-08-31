@@ -348,6 +348,11 @@ body.dark-theme {
   margin-bottom: .5rem;
 }
 
+.new__rub {
+  font-size: var(--h3-font-size);
+  margin-bottom: .3rem;
+}
+
 .new__subtitle {
   font-size: var(--smaller-font-size);
   color: var(--text-color);
@@ -785,6 +790,10 @@ body.dark-theme {
     margin-bottom: 1.25rem;
   }
   .new__title {
+    font-size: var(--h3-font-size);
+  }
+
+    .new__rub {
     font-size: var(--h3-font-size);
   }
 
