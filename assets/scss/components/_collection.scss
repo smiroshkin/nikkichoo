@@ -1,8 +1,8 @@
-/*=============== COLLECTION ===============*/
+/*=============== Коллекция ===============*/
 .collection{
     background-color: var(--bg-color-light);
     overflow: hidden;
-    transition: .4s; /*For animation dark mode*/
+    transition: .4s; /*Темная тема*/
     
     &__container{
         position: relative;
