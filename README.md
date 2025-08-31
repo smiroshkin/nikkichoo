@@ -1,5 +1,5 @@
 <div align="center">
-    <a href="https://clothing-fv.netlify.app" target="_blank">
+    <a href="https://nikkichoo.ru" target="_blank">
       <img src="design/preview.png" alt="Project Banner">
     </a>
   <h3 align="center">Barefoot Shop</h3>
@@ -13,9 +13,6 @@
 
 ## <br /> <a name="introduction">✨ Introduction</a>
 
-**[EN]** Landing page design for a clothing shop featuring a modern and minimalist aesthetic, crafted using HTML, CSS, and JavaScript. Enhanced with smooth animations powered by ScrollReveal.js library.
-
-**[FR]** Page d'accueil pour une boutique de vêtements, mettant en avant une esthétique moderne et minimaliste, réalisée avec HTML, CSS et JavaScript. Agrémentée d'animations fluides grâce à la bibliothèque ScrollReveal.js.
 
 ## <br /> <a name="tech-stack">⚙️ Tech Stack</a>
 
@@ -39,9 +36,6 @@ Make sure you have the following installed on your machine:
 
 <br/>**Cloning the Repository**
 
-```bash
-git clone {git remote URL}
-```
 
 <br/>**Running the Project**
 
