@@ -96,15 +96,98 @@
             </section>
 
 
-            <!--==================== COLLECTION ====================-->
+        <!--==================== COLLECTION ====================-->
             <section class="products section" id="collection">
                 <h2 class="section__title">
                     Модели босоногой обуви
-                </h2>
+                </h2>            
 
-                <div class="products__container container swiper">
+                
+<!-- Подключение Splide -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/css/splide.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/js/splide.min.js"></script>
+
+  
+    <!-- Разметка слайдера -->    
+                    <div class="swiper-wrapper">     
+
+    <!-- Первый слайдер -->                         
+                    <article class="products__card swiper-slide">
+                        <div id="splide1" class="splide">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+                                <li class="splide__slide"><img src="assets/img/сproduct1.1.webp" alt="product image" class="products__img"></li>
+                                <li class="splide__slide"><img src="assets/img/сproduct1.2.webp" alt="product image" class="products__img"></li>
+                                <li class="splide__slide"><img src="assets/img/сproduct1.3.webp" alt="product image" class="products__img"></li>
+                                </ul>
+                            </div>
+                        </div>                            
+                         <h2 class="products__title">Туфли с завязками</h2>
+                            <span class="products__price">
+                                Верх - 100% кожа <br>
+                                Подкладка - 100% натуральная кожа<br>
+                                Цвет: под заказ <br>
+                                Размеры: 35-43 <br>
+                                от 12500 р.
+                            </span>
+                    </article> 
+ <!-- Второй слайдер -->
+                    <article class="products__card swiper-slide">
+                        <div id="splide2" class="splide">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+                                <li class="splide__slide"><img src="assets/img/сproduct2.1.webp" alt="product image" class="products__img"></li>
+                                <li class="splide__slide"><img src="assets/img/сproduct2.2.webp" alt="product image" class="products__img"></li>
+                                <li class="splide__slide"><img src="assets/img/сproduct2.3.webp" alt="product image" class="products__img"></li>
+                                </ul>
+                            </div>
+                        </div>                            
+                         <h2 class="products__title">Туфли с завязками</h2>
+                            <span class="products__price">
+                                Верх - 100% кожа <br>
+                                Подкладка - 100% натуральная кожа<br>
+                                Цвет: под заказ <br>
+                                Размеры: 35-43 <br>
+                                от 12500 р.
+                            </span>
+                    </article>                    
+ <!-- Третий слайдер -->
+                    <article class="products__card swiper-slide">
+                        <div id="splide3" class="splide">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+                                <li class="splide__slide"><img src="assets/img/сproduct3.1.webp" alt="product image" class="products__img"></li>
+                                <li class="splide__slide"><img src="assets/img/сproduct3.2.webp" alt="product image" class="products__img"></li>
+                                <li class="splide__slide"><img src="assets/img/сproduct3.3.webp" alt="product image" class="products__img"></li>
+                                </ul>
+                            </div>
+                        </div>                            
+                         <h2 class="products__title">Туфли с завязками</h2>
+                            <span class="products__price">
+                                Верх - 100% кожа <br>
+                                Подкладка - 100% натуральная кожа<br>
+                                Цвет: под заказ <br>
+                                Размеры: 35-43 <br>
+                                от 12500 р.
+                            </span>
+                    </article>                       
+                    </div>   
+      
+
+<script>
+  // Инициализация Splide
+  new Splide('#splide1').mount();
+  new Splide('#splide2').mount();
+  new Splide('#splide3').mount();
+  new Splide('#splide4').mount();
+</script>
+</div>     
+
+
+            <div class="products__container container swiper">              
                     <div class="swiper-wrapper">
                         <article class="products__card swiper-slide">
+
                             <img src="assets/img/cproduct1.png" alt="product image" class="products__img">
 
                             <h2 class="products__title">
@@ -118,10 +201,10 @@
                                 от 12500 р.
                             </span>
                         </article>
-
+                        
                         <article class="products__card swiper-slide">
                             <img src="assets/img/cproduct2.png" alt="product image" class="products__img">
-
+                            <img src="assets/img/cproduct3.png" alt="product image" class="products__img">
                             <h2 class="products__title">
                                 Туфли перекрест
                             </h2>
@@ -207,6 +290,7 @@
                                 от 12500 р.
                             </span>
                         </article>
+
                     </div>
 
                     
@@ -549,6 +633,11 @@
                     </div>
 
 
+
+
+
+
+
                     <div class="swiper-button-next">
                         <i class="ri-arrow-right-line"></i>
                     </div>
@@ -583,9 +672,7 @@
                                     Размеры: под заказ<br>
                                 </span><br>
                                 <span class="new__rub"> 12500 р. </span>
-                            </div>
-
-                            
+                            </div>                            
                         </a>
                     </article>
 
@@ -603,9 +690,7 @@
                                     Произведено в России<br>
                                     Размеры: под заказ<br>
                                 </span>
-                            </div>
-
-                    
+                            </div>                    
                         </a>
                     </article>
 
