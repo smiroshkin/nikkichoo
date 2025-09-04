@@ -107,9 +107,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/css/splide.min.css">
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/js/splide.min.js"></script>
 
-  
+    <div class="products__container container swiper">  
     <!-- Разметка слайдера -->    
-                    <div class="swiper-wrapper">     
+            <div class="swiper-wrapper">     
 
     <!-- Первый слайдер -->                         
                     <article class="products__card swiper-slide">
@@ -122,7 +122,7 @@
                                 </ul>
                             </div>
                         </div>                            
-                         <h2 class="products__title">Туфли с завязками</h2>
+                         <h2 class="products__title">Кеды высокие (зима)</h2>
                             <span class="products__price">
                                 Верх - 100% кожа <br>
                                 Подкладка - 100% натуральная кожа<br>
@@ -162,7 +162,7 @@
                                 </ul>
                             </div>
                         </div>                            
-                         <h2 class="products__title">Туфли с завязками</h2>
+                         <h2 class="products__title">Челси</h2>
                             <span class="products__price">
                                 Верх - 100% кожа <br>
                                 Подкладка - 100% натуральная кожа<br>
@@ -170,16 +170,78 @@
                                 Размеры: 35-43 <br>
                                 от 12500 р.
                             </span>
-                    </article>                       
-                    </div>   
+                    </article> 
+ <!-- Четвертый слайдер -->
+                    <article class="products__card swiper-slide">
+                        <div id="splide4" class="splide">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+                                <li class="splide__slide"><img src="assets/img/сproduct4.1.webp" alt="product image" class="products__img"></li>
+                                <li class="splide__slide"><img src="assets/img/сproduct4.2.webp" alt="product image" class="products__img"></li>
+                                <li class="splide__slide"><img src="assets/img/сproduct4.3.webp" alt="product image" class="products__img"></li>
+                                </ul>
+                            </div>
+                        </div>                            
+                         <h2 class="products__title">Полусапожки</h2>
+                            <span class="products__price">
+                                Верх - 100% кожа <br>
+                                Подкладка - 100% натуральная кожа<br>
+                                Цвет: под заказ <br>
+                                Размеры: 35-43 <br>
+                                от 12500 р.
+                            </span>
+                    </article>    
+
+ <!-- Пятый слайдер -->
+                    <article class="products__card swiper-slide">
+                        <div id="splide5" class="splide">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+                                <li class="splide__slide"><img src="assets/img/сproduct5.1.webp" alt="product image" class="products__img"></li>
+                                <li class="splide__slide"><img src="assets/img/сproduct5.2.webp" alt="product image" class="products__img"></li>
+                                <li class="splide__slide"><img src="assets/img/сproduct5.3.webp" alt="product image" class="products__img"></li>
+                                </ul>
+                            </div>
+                        </div>                            
+                         <h2 class="products__title"><Босоножки></h2>
+                            <span class="products__price">
+                                Верх - 100% кожа <br>
+                                Подкладка - 100% натуральная кожа<br>
+                                Цвет: под заказ <br>
+                                Размеры: 35-43 <br>
+                                от 12500 р.
+                            </span>
+                    </article>    
+
+
+
+            </div>                        
+                        <div class="swiper-button-next">
+                        <i class="ri-arrow-right-line"></i>
+                    </div>
+
+                    <div class="swiper-button-prev">
+                        <i class="ri-arrow-left-line"></i>
+                    </div>                
+                        
+    </div>   
       
 
 <script>
   // Инициализация Splide
-  new Splide('#splide1').mount();
+            new Splide('#splide1', {
+                type: 'loop',
+                perPage: 1,
+                autoplay: true,
+                interval: 3000,
+                pauseOnHover: true,
+            }).mount();
+
   new Splide('#splide2').mount();
   new Splide('#splide3').mount();
   new Splide('#splide4').mount();
+  new Splide('#splide5').mount();
+  new Splide('#splide5').mount();
 </script>
 </div>     
 
