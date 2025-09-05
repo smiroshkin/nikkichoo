@@ -694,7 +694,7 @@ body.dark-theme {
   }
 
   .footer__container {
-    grid-template-columns: repeat(2, max-content);
+    grid-template-columns: repeat(1, max-content);
     justify-content: space-between;
   }
 }
