@@ -61,7 +61,7 @@
                         <li class="nav__item">
                             <a href="#products" class="nav__link">
                                 <i class="ri-t-shirt-line"></i>
-                                <span>Спецпредложения</span>
+                                <span>Распродажа</span>
                             </a>
                         </li>
 
@@ -105,7 +105,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/css/splide.min.css">
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/js/splide.min.js"></script>
 
-<h3 class="section__title">Зима</h3>   
+<h3 class="section__title">Зимние модели</h3>   
     <div class="products__container container swiper">      
             <div class="swiper-wrapper">        
     <!-- Первый слайдер -->                         
@@ -168,9 +168,8 @@
                                 от 12500 р.
                             </span>
                     </article> 
-                    </div>
-
-</div>
+            </div>
+    </div>
 
 <h3 class="section__title">Осень-весна</h3>   
     <div class="products__container container swiper">  
@@ -236,12 +235,11 @@
                                 Размеры: 35-43 <br>
                                 от 12500 р.
                             </span>
-                    </article>    
-
-            </div>          
-        </div>       
+                    </article>   
+         </div>          
+    </div>       
         
-<h3 class="section__title">Лето</h3>   
+<h3 class="section__title">Летние модели </h3>   
     <div class="products__container container swiper">  
         <div class="swiper-wrapper">    
  <!-- Седьмой слайдер -->
@@ -306,174 +304,76 @@
                                 от 12500 р.
                             </span>
                     </article>    
-
-            </div>          
-        </div>               
-
-
-
-            
-                        <div class="swiper-button-next">
+            </div>             
+            <div class="swiper-button-next">
                         <i class="ri-arrow-right-line"></i>
                     </div>
-
                     <div class="swiper-button-prev">
                         <i class="ri-arrow-left-line"></i>
-                    </div>                
-                        
-    </div>   
-      
-
+            </div>                      
+    </div>        
+                  
+<!-- Инициализаци Splide -->
 <script>
-  // Инициализация Splide
             new Splide('#splide1', {
                 type: 'loop',
                 perPage: 1,
-                autoplay: true,
-                interval: 3000,
-                pauseOnHover: true,
+                arrows: true,
             }).mount();
 
-  new Splide('#splide2').mount();
-  new Splide('#splide3').mount();
-  new Splide('#splide4').mount();
-  new Splide('#splide5').mount();
-  new Splide('#splide5').mount();
-  new Splide('#splide6').mount();
-  new Splide('#splide7').mount();
-  new Splide('#splide8').mount();
-  new Splide('#splide9').mount();
-</script>
-</div>     
+new Splide('#splide2', {
+                type: 'loop',
+                perPage: 1,
+                arrows: true,
+            }).mount();
+  new Splide('#splide3', {
+                type: 'loop',
+                perPage: 1,
+                arrows: true,
+            }).mount();
+  new Splide('#splide4', {
+                type: 'loop',
+                perPage: 1,
+                arrows: true,
+            }).mount();
+  new Splide('#splide5', {
+                type: 'loop',
+                perPage: 1,
+                arrows: true,
+            }).mount();
+  new Splide('#splide5', {
+                type: 'loop',
+                perPage: 1,
+                arrows: true,
+            }).mount();
+  new Splide('#splide6', {
+                type: 'loop',
+                perPage: 1,
+                arrows: true,
+            }).mount();
+  new Splide('#splide7', {
+                type: 'loop',
+                perPage: 1,
+                arrows: true,
+            }).mount();
+  new Splide('#splide8', {
+                type: 'loop',
+                perPage: 1,
+                arrows: true,
+            }).mount();
+  new Splide('#splide9', {
+                type: 'loop',
+                perPage: 1,
+                arrows: true,
+            }).mount();
+</script>                     
+</section>
 
-
-            <div class="products__container container swiper">              
-                    <div class="swiper-wrapper">
-                        <article class="products__card swiper-slide">
-
-                            <img src="assets/img/cproduct1.png" alt="product image" class="products__img">
-
-                            <h2 class="products__title">
-                                Туфли с завязками
-                            </h2>
-                            <span class="products__price">
-                                Верх - 100% кожа <br>
-                                Подкладка - 100% натуральная кожа<br>
-                                Цвет: под заказ <br>
-                                Размеры: 35-43 <br>
-                                от 12500 р.
-                            </span>
-                        </article>
-                        
-                        <article class="products__card swiper-slide">
-                            <img src="assets/img/cproduct2.png" alt="product image" class="products__img">
-                            <img src="assets/img/cproduct3.png" alt="product image" class="products__img">
-                            <h2 class="products__title">
-                                Туфли перекрест
-                            </h2>
-                            <span class="products__price">
-                                Верх - 100% кожа <br>
-                                Подкладка - 100% натуральная кожа<br>
-                                Цвет: под заказ <br>
-                                Размеры: 35-43 <br>
-                                от 12500 р.
-                            </span>
-                        </article>
-
-                        <article class="products__card swiper-slide">
-                            <img src="assets/img/cproduct3.png" alt="product image" class="products__img">
-
-                            <h2 class="products__title">
-                                Туфли с ремешком
-                            </h2>
-                            <span class="products__price">
-                                Верх - 100% кожа <br>
-                                Подкладка - 100% натуральная кожа<br>
-                                Цвет: под заказ <br>
-                                Размеры: 35-43<br>
-                                от 12500 р.
-                            </span>
-                        </article>
-
-                        <article class="products__card swiper-slide">
-                            <img src="assets/img/cproduct4.png" alt="product image" class="products__img">
-
-                            <h2 class="products__title">
-                                Лоферы с ремешком
-                            </h2>
-                            <span class="products__price">  
-                                Верх - 100% кожа <br>
-                                Подкладка - 100% натуральная кожа<br>
-                                Цвет: под заказ <br>
-                                Размеры: 35-43<br>
-                                от 12500 р.
-                            </span>
-                        </article>
-
-                        <article class="products__card swiper-slide">
-                            <img src="assets/img/cproduct5.png" alt="product image" class="products__img">
-                            <h2 class="products__title">
-                               Кеды высокие (зима)
-                            </h2>
-                            <span class="products__price">  
-                                Верх - 100% кожа <br>
-                                Подкладка - 100% натуральная кожа<br>
-                                Цвет: под заказ <br>
-                                Размеры: 34-47<br>
-                                от 12500 р.
-                            </span>
-                        </article>
-
-                        <article class="products__card swiper-slide">
-                            <img src="assets/img/cproduct6.png" alt="product image" class="products__img">
-                            <h2 class="products__title">
-                               Кеды низкие
-                            </h2>
-                            <span class="products__price">  
-                                Верх - 100% кожа <br>
-                                Подкладка - 100% натуральная кожа<br>
-                                Цвет: под заказ <br>
-                                Размеры: 34-47<br>
-                                от 12500 р.
-                            </span>
-                        </article>
-
-
-                        <article class="products__card swiper-slide">
-                            <img src="assets/img/cproduct7.png" alt="product image" class="products__img">
-
-                            <h2 class="products__title">
-                                Полусапожки
-                            </h2>
-                            <span class="products__price">  
-                                Верх - 100% кожа <br>
-                                Подкладка - 100% натуральная кожа<br>
-                                Цвет: под заказ <br>
-                                Размеры: 34-47<br>
-                                от 12500 р.
-                            </span>
-                        </article>
-
-                    </div>
-
-                    
-
-                    <div class="swiper-button-next">
-                        <i class="ri-arrow-right-line"></i>
-                    </div>
-
-                    <div class="swiper-button-prev">
-                        <i class="ri-arrow-left-line"></i>
-                    </div>
-                </div>
-            </section>
-
-            <!--==================== PRODUCTS ====================-->
+<!--==================== PRODUCTS ====================-->
             <section class="products section" id="products">
                 <h2 class="section__title">
-                    Спецпредложения
+                    Распродажа
                 </h2>
-
                 <div class="products__container container swiper">
                     <div class="swiper-wrapper">
 
@@ -570,7 +470,7 @@
                         </article>                        
 
                         <article class="products__card swiper-slide">
-                            <img src="assets/img/product8.png" alt="product image" class="products__img">
+                            <img src="assets/img/product9.png" alt="product image" class="products__img">
                             <h2 class="products__title">
                                 Лоферы на пряжке
                             </h2>
@@ -585,7 +485,7 @@
                         <article class="products__card swiper-slide">
                             <img src="assets/img/product8.png" alt="product image" class="products__img">
                             <h2 class="products__title">
-                                Лоферы на резинках
+                                Лоферы на шнуровке
                             </h2>
                             <span class="products__price">
                                 Верх - 100% кожа <br>
@@ -795,12 +695,6 @@
                         
                     </div>
 
-
-
-
-
-
-
                     <div class="swiper-button-next">
                         <i class="ri-arrow-right-line"></i>
                     </div>
@@ -812,7 +706,7 @@
             </section>
 
 
-            <!--==================== NEW ====================-->
+<!--==================== Палитра ====================-->
             <section class="new section" id="new">
                 <h2 class="section__title">
                     Палитра
@@ -826,7 +720,7 @@
                         <a href="#" class="new__link">
                             <div class="new__data">
                                 <h2 class="new__title">
-                                    Туфли
+                                    Туфли с
                                 </h2>
                                 <span class="new__subtitle">
                                     Верх - 100% кожа <br>
@@ -878,10 +772,6 @@
                     </article>
                 </div>
             </section>
-
-
-
-
         </main>
 
         <!--==================== FOOTER ====================-->
