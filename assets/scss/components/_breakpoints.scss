@@ -146,8 +146,9 @@
     }
 
     .active-link{
-        color: var(--title-color);
-        text-decoration: line-through;
+    font-weight: bold;
+    border-bottom: 2px solid var(--title-color); /* Подчеркивание */
+
     }
     
     .change-theme{

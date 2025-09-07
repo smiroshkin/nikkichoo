@@ -208,6 +208,8 @@ body.dark-theme {
     display: grid;
     justify-items: center;
     row-gap: .25rem;
+    transition: color 0.3s ease;         /* Плавный переход */
+    text-decoration: none;               /* Убрать подчеркивание */
   }
   .nav__link i {
     font-size: 1.25rem;
@@ -226,12 +228,11 @@ body.dark-theme {
 /* Active link */
 .active-link {
   color: var(--title-color);
+  font-weight: var(--font-bold);       /* Жирнее для активной ссылки */
+
 }
 
 /*=============== HOME ===============*/
-
-
-
 
 .hero {
   padding: 80px 20px;
@@ -730,10 +731,13 @@ body.dark-theme {
   .nav__link:hover {
     color: var(--title-color);
   }
-
   .active-link {
     color: var(--title-color);
-    text-decoration: line-through;
+    text-decoration: none;
+    
+    font-weight: bold;
+    border-bottom: 2px solid var(--title-color); /* Подчеркивание */
+
   }
 
   .change-theme {
