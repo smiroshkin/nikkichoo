@@ -1,15 +1,43 @@
+/* assets/css/accordion.css - отдельный файл */
+
+/* Исправление отступов для FAQ секции */
+.faq-section {
+  padding-top: calc(var(--header-height) + 3rem);
+  padding-bottom: 4rem;
+  background-color: var(--bg-color-light);
+  transition: background-color 0.4s;
+}
+
+.faq-intro {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-color);
+  font-size: var(--normal-font-size);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* Улучшенные стили аккордеона */
 .accordion {
   width: 100%;
-  max-width: 660px;
-  margin: 40px auto;
-  background: #fff;
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--container-color);
   border-radius: 12px;
-  box-shadow: 0 2px 24px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 20px hsla(220, 18%, 40%, 0.1);
   overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .accordion-item {
-  border-bottom: 1px solid #e3e3e3;
+  border-bottom: 1px solid hsla(220, 18%, 80%, 0.3);
+  transition: border-color 0.3s ease;
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
 }
 
 .accordion-header {
@@ -17,54 +45,129 @@
   text-align: left;
   outline: none;
   border: none;
-  background: #f7f7f7;
-  color: #222;
-  font-size: 1.06rem;
-  padding: 20px 28px;
+  background: var(--container-color);
+  color: var(--title-color);
+  font-size: var(--normal-font-size);
+  padding: 1.5rem 2rem;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: var(--font-medium);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: background 0.22s;
+  transition: all 0.3s ease;
+  font-family: var(--body-font);
 }
 
-.accordion-header:focus, 
+.accordion-header:focus,
 .accordion-header:hover {
-  background: #ececec;
+  background: var(--bg-color-light);
+  color: var(--title-color);
+}
+
+.accordion-header[aria-expanded="true"] {
+  background: var(--bg-color-light);
+  border-bottom: 1px solid hsla(220, 18%, 70%, 0.3);
 }
 
 .accordion-header[aria-expanded="true"] .accordion-icon {
   transform: rotate(45deg);
 }
 
+.accordion-title {
+  flex: 1;
+  font-weight: var(--font-medium);
+}
+
 .accordion-icon {
-  font-size: 2em;
-  margin-left: 15px;
-  transition: transform 0.3s;
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  transition: transform 0.3s ease;
+  color: var(--text-color);
+  line-height: 1;
 }
 
 .accordion-content {
   overflow: hidden;
   max-height: 0;
-  background: #fcfcfc;
-  color: #333;
-  transition: max-height 0.42s cubic-bezier(0.42,0,0.22,1);
-  padding: 0 28px;
-  font-size: 1rem;
+  background: var(--container-color);
+  color: var(--text-color);
+  transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  padding: 0 2rem;
+  font-size: var(--normal-font-size);
+  line-height: 1.6;
 }
 
 .accordion-item.active .accordion-content {
-  padding: 15px 28px 24px 28px;
+  padding: 1.5rem 2rem 2rem 2rem;
 }
 
-@media (max-width: 600px) {
-  .accordion {
-    max-width: 98vw;
-    margin: 16px 0;
+/* Темная тема */
+.dark-theme .accordion {
+  background: var(--container-color);
+  box-shadow: 0 4px 20px hsla(220, 18%, 8%, 0.3);
+}
+
+.dark-theme .accordion-header,
+.dark-theme .accordion-content {
+  background: var(--container-color);
+}
+
+.dark-theme .accordion-header:hover,
+.dark-theme .accordion-header:focus,
+.dark-theme .accordion-header[aria-expanded="true"] {
+  background: var(--bg-color-light);
+}
+
+/* Респонсив */
+@media screen and (max-width: 768px) {
+  .faq-section {
+    padding-top: calc(var(--header-height) + 2rem);
+    padding-bottom: 3rem;
   }
-  .accordion-header, .accordion-content {
-    padding-left: 12px;
-    padding-right: 12px;
+  
+  .accordion {
+    max-width: 95vw;
+    margin: 0 auto;
+    border-radius: 8px;
+  }
+  
+  .accordion-header,
+  .accordion-content {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .accordion-header {
+    font-size: var(--small-font-size);
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+  
+  .accordion-icon {
+    margin-left: 0.75rem;
+    font-size: 1.25rem;
+  }
+  
+  .accordion-item.active .accordion-content {
+    padding: 1.25rem 1.5rem 1.75rem 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .faq-section {
+    padding-top: calc(var(--header-height) + 1.5rem);
+  }
+  
+  .accordion-header {
+    font-size: var(--smaller-font-size);
+    padding: 1rem 1rem;
+  }
+  
+  .accordion-content {
+    padding: 0 1rem;
+  }
+  
+  .accordion-item.active .accordion-content {
+    padding: 1rem;
   }
 }
