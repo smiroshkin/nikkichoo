@@ -176,26 +176,7 @@ class BenefitsAnimationController {
     /**
      * Handle card click interactions
      */
-    handleCardClick(event, index) {
-        const card = event.currentTarget;
-        
-        // Add click animation
-        card.style.transform = 'scale(0.95)';
-        
-        setTimeout(() => {
-            card.style.transform = '';
-        }, 150);
-        
-        // Trigger custom event
-        this.triggerCustomEvent('cardClicked', { 
-            card, 
-            index, 
-            title: card.querySelector('.benefits-card__title')?.textContent 
-        });
-        
-        // Optional: Add analytics tracking here
-        this.trackInteraction('card_click', index);
-    }
+    
     
     /**
      * Handle keyboard navigation

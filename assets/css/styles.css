@@ -4,6 +4,14 @@
 /*=============== VARIABLES CSS ===============*/
 :root {
   --header-height: 3.5rem;
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 200;
+  
+  /* переменные для benefits */
+  --z-benefits-card: 5;
+  --z-benefits-hover: 15;
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/

@@ -1,8 +1,18 @@
+
+/*=============== CSS ПЕРЕМЕННЫЕ ДЛЯ Z-INDEX ===============*/
+:root {
+  --z-benefits-card: 5;
+  --z-benefits-hover: 15;
+}
+
 /*=============== BENEFITS SECTION ===============*/
 .benefits-section {
   padding: 3rem 0;
   background-color: var(--body-color);
   transition: background-color 0.4s;
+  /* Добавляем относительное позиционирование */
+  position: relative;
+  z-index: 1;
 }
 
 .benefits-grid {
@@ -16,6 +26,9 @@
 
 /*=============== BENEFITS CARD ===============*/
 .benefits-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem; 
   background: #ffffff;
   border-radius: 12px;
   padding: 2rem 1.5rem;
@@ -26,13 +39,14 @@
   overflow: hidden;
   cursor: pointer;
   transform: translateY(0);
+  z-index: var(--z-benefits-card);
 }
 
-/* Hover эффект */
 .benefits-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-  border-color: var(--title-color);
+  border-color: var(--title-color); 
+  z-index: var(--z-benefits-hover);
 }
 
 /* Анимация при загрузке */
@@ -48,8 +62,10 @@
 
 /*=============== CARD ICON ===============*/
 .benefits-card__icon {
+  flex: 0 0 60px;
   width: 60px;
   height: 60px;
+  margin-bottom: 0;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--title-color) 0%, var(--text-color) 100%);
   display: flex;
@@ -78,6 +94,8 @@
 /*=============== CARD CONTENT ===============*/
 .benefits-card__content {
   text-align: left;
+  flex: 1 1 auto;
+  min-width: 0; 
 }
 
 .benefits-card__title {
@@ -143,9 +161,14 @@
 /*=============== RESPONSIVE DESIGN ===============*/
 
 /* Tablets */
-@media screen and (max-width: 768px) {
-  .benefits-section {
-    padding: 2.5rem 0;
+@media screen and (max-width: 480px) {
+  .benefits-card {
+    gap: 0.75rem;
+  }
+  .benefits-card__icon {
+    flex-basis: 45px;
+    width: 45px;
+    height: 45px;
   }
   
   .benefits-grid {
@@ -255,6 +278,7 @@
 .benefits-card:focus {
   outline: 2px solid var(--title-color);
   outline-offset: 2px;
+  z-index: var(--z-benefits-hover);
 }
 
 .benefits-card:focus:not(:focus-visible) {
@@ -292,5 +316,20 @@
   .benefits-card[data-aos] {
     opacity: 1;
     transform: none;
+  }
+}
+
+/*=============== ИСПРАВЛЕНИЕ Z-INDEX КОНФЛИКТОВ ===============*/
+/* Гарантируем, что benefits карточки не перекрывают важные элементы */
+.benefits-card:hover {
+  /* Убеждаемся, что hover не превышает z-index навигации */
+  z-index: calc(var(--z-tooltip) + 5); /* 10 + 5 = 15, но меньше чем --z-fixed (100) */
+}
+
+/* Специальные стили для конфликтных ситуаций */
+@media screen and (max-width: 1023px) {
+  /* На мобильных устройствах, где навигация внизу */
+  .benefits-card {
+    margin-bottom: 2rem; /* Дополнительный отступ от нижней навигации */
   }
 }
