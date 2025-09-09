@@ -1,15 +1,14 @@
-/* assets/css/accordion.css - отдельный файл */
+/*=============== FAQ ACCORDION FIXED STYLES ===============*/
 
-/* Исправление отступов для FAQ секции */
+/* Отступы для FAQ секции */
 .faq-section {
-  padding-top: calc(var(--header-height) + 3rem);
-  padding-bottom: 4rem;
+  padding-top: calc(var(--header-height) - 0.5rem);
+  padding-bottom: 2rem;
   background-color: var(--bg-color-light);
   transition: background-color 0.4s;
 }
 
-.faq-intro {
-  text-align: center;
+.faq-intro {  
   margin-bottom: 3rem;
   color: var(--text-color);
   font-size: var(--normal-font-size);
@@ -19,20 +18,22 @@
   line-height: 1.6;
 }
 
-/* Улучшенные стили аккордеона */
+/* ИСПРАВЛЕННЫЕ СТИЛИ АККОРДЕОНА - БЕЛЫЙ ФОН */
 .accordion {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  background: var(--container-color);
+  /* ИСПРАВЛЕНИЕ: Чистый белый фон вместо переменных */
+  background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 4px 20px hsla(220, 18%, 40%, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .accordion-item {
-  border-bottom: 1px solid hsla(220, 18%, 80%, 0.3);
+  border-bottom: 1px solid #e8e8e8;
   transition: border-color 0.3s ease;
 }
 
@@ -40,12 +41,13 @@
   border-bottom: none;
 }
 
+/* Белый фон для заголовков аккордеона */
 .accordion-header {
   width: 100%;
   text-align: left;
   outline: none;
-  border: none;
-  background: var(--container-color);
+  border: none; 
+  background: #ffffff !important;
   color: var(--title-color);
   font-size: var(--normal-font-size);
   padding: 1.5rem 2rem;
@@ -58,38 +60,46 @@
   font-family: var(--body-font);
 }
 
+/* Hover и Focus состояния - тоже белый фон */
 .accordion-header:focus,
 .accordion-header:hover {
-  background: var(--bg-color-light);
+  /* Очень светлый серый при наведении */
+  background: #fafafa !important;
   color: var(--title-color);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
 .accordion-header[aria-expanded="true"] {
-  background: var(--bg-color-light);
-  border-bottom: 1px solid hsla(220, 18%, 70%, 0.3);
+  /* Белый фон даже для активного состояния */
+  background: #ffffff !important;
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .accordion-header[aria-expanded="true"] .accordion-icon {
   transform: rotate(45deg);
+  color: var(--title-color);
 }
 
 .accordion-title {
   flex: 1;
   font-weight: var(--font-medium);
+  color: var(--title-color);
 }
 
 .accordion-icon {
   font-size: 1.5rem;
   margin-left: 1rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
   color: var(--text-color);
   line-height: 1;
 }
 
+/* Белый фон для контента */
 .accordion-content {
   overflow: hidden;
   max-height: 0;
-  background: var(--container-color);
+  /* Чистый белый фон */
+  background: #ffffff !important;
   color: var(--text-color);
   transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   padding: 0 2rem;
@@ -101,21 +111,35 @@
   padding: 1.5rem 2rem 2rem 2rem;
 }
 
-/* Темная тема */
+/* Темная тема - адаптация для белого фона */
 .dark-theme .accordion {
-  background: var(--container-color);
-  box-shadow: 0 4px 20px hsla(220, 18%, 8%, 0.3);
+  /* В темной теме аккордеоны остаются белыми для контраста */
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .dark-theme .accordion-header,
 .dark-theme .accordion-content {
-  background: var(--container-color);
+  background: #ffffff !important;
+  color: var(--title-color);
 }
 
 .dark-theme .accordion-header:hover,
 .dark-theme .accordion-header:focus,
 .dark-theme .accordion-header[aria-expanded="true"] {
-  background: var(--bg-color-light);
+  background: #fafafa !important;
+}
+
+.dark-theme .accordion-title {
+  color: #333333; /* Темный текст на белом фоне */
+}
+
+.dark-theme .accordion-content {
+  color: #555555; /* Серый текст для читаемости */
+}
+
+.dark-theme .accordion-icon {
+  color: #666666;
 }
 
 /* Респонсив */
@@ -160,7 +184,7 @@
   
   .accordion-header {
     font-size: var(--smaller-font-size);
-    padding: 1rem 1rem;
+    padding: 1rem;
   }
   
   .accordion-content {
@@ -170,4 +194,29 @@
   .accordion-item.active .accordion-content {
     padding: 1rem;
   }
+}
+
+/* Дополнительные стили для лучшего контраста */
+.accordion-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.accordion-header:active {
+  transform: scale(0.995);
+}
+
+/* Анимация появления */
+@keyframes accordionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.accordion {
+  animation: accordionFadeIn 0.5s ease-out;
 }

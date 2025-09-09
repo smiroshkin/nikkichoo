@@ -22,9 +22,9 @@
         <!-- Подключение стилей -->
         <link rel="stylesheet" href="assets/css/styles.css">   
         <link rel="stylesheet" href="assets/css/accordion.css">   
-                  
-    </head>
+         <link rel="stylesheet" href="assets/css/cards.css">
 
+    </head>
 
     <body>
         <!--==================== HEADER ====================-->
@@ -74,12 +74,55 @@
         <!--==================== MAIN ====================-->
 <main>
         <!--==================== size-guide ====================-->
+
+<!-- БЛОК ПРЕИМУЩЕСТВ -->
+        <section class="benefits-section section" id="benefits">
+            <div class="container">
+                <div class="benefits-grid" id="benefitsGrid">
+                    <!-- Бесплатная доставка -->
+                    <div class="benefits-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="benefits-card__icon">
+                            <i class="ri-truck-line"></i>
+                        </div>
+                        <div class="benefits-card__content">
+                            <h3 class="benefits-card__title">Бесплатная доставка</h3>
+                            <p class="benefits-card__description">Отправляем по России: Яндекс, СДЭК, Почта России.</p>
+                        </div>
+                    </div>
+
+                    <!-- Возврат 7 дней -->
+                    <div class="benefits-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="benefits-card__icon">
+                            <i class="ri-refresh-line"></i>
+                        </div>
+                        <div class="benefits-card__content">
+                            <h3 class="benefits-card__title">7 дней на возврат</h3>
+                            <p class="benefits-card__description">Легкий возврат товара в течение 7 дней</p>
+                        </div>
+                    </div>
+
+                    <!-- Гарантия качества -->
+                    <div class="benefits-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="benefits-card__icon">
+                            <i class="ri-award-line"></i>
+                        </div>
+                        <div class="benefits-card__content">
+                            <h3 class="benefits-card__title">Гарантия качества</h3>
+                            <p class="benefits-card__description">Высококачественные материалы и проверенное качество.  Гарантия в течение 3 месяцев с момента получения.</p>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </section>
+
+
 <!-- Улучшенная семантическая структура -->
 <section class="faq-section" aria-labelledby="faq-heading">
     <div class="container">
-        <h1 id="faq-heading">Часто задаваемые вопросы</h1>
-        <p class="faq-intro">Здесь собраны ответы на популярные вопросы о босоногой обуви и заказах в NikkiChoo</p>
-        
+        <h1 id="faq-heading">Часто задаваемые вопросы</h1>    
+
         <div class="accordion" id="faqAccordion" role="tablist" aria-multiselectable="false">
             <div class="accordion-item">
                 <h3>
@@ -106,7 +149,16 @@
     </div>
 </section>
 
+
+
+
+
+
+
 </main>    
+
+
+
 
 
 
@@ -136,7 +188,7 @@
                 </span>
             </div>
         </footer>
-        
+
 <!-- Подключение скриптов -->
         <!--========== SCROLL UP ==========-->
         <a href="#" class="scrollup" id="scroll-up">
@@ -153,6 +205,7 @@
         <script src="assets/js/main.js"></script>
          <!-- Подключение JS аккордеона -->
         <script src="assets/js/accordion.js"></script>
+        <script src="assets/js/benefits-animation.js"></script>
                 <!-- Подключение Splide -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/css/splide.min.css">
         <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/js/splide.min.js"></script>

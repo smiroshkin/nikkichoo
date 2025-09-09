@@ -1,0 +1,302 @@
+/**
+ * Benefits Section Styles for NikkiChoo
+ * Inspired by Tadeevo design with custom adaptations
+ * Fully responsive and optimized for performance
+ */
+
+/*=============== BENEFITS SECTION ===============*/
+.benefits-section {
+  padding: 3rem 0;
+  background-color: var(--body-color);
+  transition: background-color 0.4s;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/*=============== BENEFITS CARD ===============*/
+.benefits-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transform: translateY(0);
+}
+
+/* Hover эффект */
+.benefits-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  border-color: var(--title-color);
+}
+
+/* Анимация при загрузке */
+.benefits-card[data-aos] {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.benefits-card[data-aos].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*=============== CARD ICON ===============*/
+.benefits-card__icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--title-color) 0%, var(--text-color) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.benefits-card__icon i {
+  font-size: 1.8rem;
+  color: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.benefits-card:hover .benefits-card__icon {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, var(--text-color) 0%, var(--title-color) 100%);
+}
+
+.benefits-card:hover .benefits-card__icon i {
+  transform: rotate(5deg);
+}
+
+/*=============== CARD CONTENT ===============*/
+.benefits-card__content {
+  text-align: left;
+}
+
+.benefits-card__title {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.benefits-card__description {
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.benefits-card:hover .benefits-card__title {
+  color: var(--title-color);
+}
+
+.benefits-card:hover .benefits-card__description {
+  color: var(--text-color);
+}
+
+/*=============== LOADING ANIMATION ===============*/
+@keyframes benefitsPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.benefits-card.loading {
+  animation: benefitsPulse 2s infinite;
+}
+
+/*=============== DARK THEME ADAPTATIONS ===============*/
+.dark-theme .benefits-section {
+  background-color: var(--body-color);
+}
+
+.dark-theme .benefits-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .benefits-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  border-color: var(--title-color);
+}
+
+.dark-theme .benefits-card__title {
+  color: #333333;
+}
+
+.dark-theme .benefits-card__description {
+  color: #555555;
+}
+
+/*=============== RESPONSIVE DESIGN ===============*/
+
+/* Tablets */
+@media screen and (max-width: 768px) {
+  .benefits-section {
+    padding: 2.5rem 0;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 0 0.75rem;
+  }
+  
+  .benefits-card {
+    padding: 1.5rem 1.25rem;
+  }
+  
+  .benefits-card__icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1.25rem;
+  }
+  
+  .benefits-card__icon i {
+    font-size: 1.5rem;
+  }
+  
+  .benefits-card__title {
+    font-size: var(--normal-font-size);
+    margin-bottom: 0.5rem;
+  }
+  
+  .benefits-card__description {
+    font-size: var(--smaller-font-size);
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+  .benefits-section {
+    padding: 2rem 0;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 0 0.5rem;
+  }
+  
+  .benefits-card {
+    padding: 1.25rem 1rem;
+    border-radius: 8px;
+  }
+  
+  .benefits-card__icon {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 1rem;
+  }
+  
+  .benefits-card__icon i {
+    font-size: 1.3rem;
+  }
+  
+  .benefits-card__title {
+    font-size: var(--small-font-size);
+    margin-bottom: 0.5rem;
+  }
+  
+  .benefits-card__description {
+    font-size: var(--smaller-font-size);
+    line-height: 1.5;
+  }
+  
+  .benefits-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* Large screens optimization */
+@media screen and (min-width: 1200px) {
+  .benefits-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+  
+  .benefits-card {
+    padding: 2.5rem 2rem;
+  }
+  
+  .benefits-card__icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 2rem;
+  }
+  
+  .benefits-card__icon i {
+    font-size: 2rem;
+  }
+  
+  .benefits-card__title {
+    font-size: var(--h2-font-size);
+    margin-bottom: 1rem;
+  }
+  
+  .benefits-card__description {
+    font-size: var(--normal-font-size);
+  }
+}
+
+/*=============== ACCESSIBILITY IMPROVEMENTS ===============*/
+.benefits-card:focus {
+  outline: 2px solid var(--title-color);
+  outline-offset: 2px;
+}
+
+.benefits-card:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.benefits-card[tabindex="0"] {
+  cursor: pointer;
+}
+
+/*=============== PERFORMANCE OPTIMIZATIONS ===============*/
+.benefits-card {
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.benefits-card__icon {
+  will-change: transform;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .benefits-card,
+  .benefits-card__icon,
+  .benefits-card__icon i {
+    transition: none;
+  }
+  
+  .benefits-card:hover {
+    transform: none;
+  }
+  
+  .benefits-card[data-aos] {
+    opacity: 1;
+    transform: none;
+  }
+}

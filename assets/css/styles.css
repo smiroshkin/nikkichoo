@@ -173,7 +173,7 @@ body.dark-theme {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: transparent;
+  background-color: var(--container-color);
   z-index: var(--z-fixed);
   transition: .4s;
 }
@@ -756,7 +756,7 @@ body.dark-theme {
   }
   
   .dark-theme .nav__menu {
-    background-color: transparent;
+    background-color: var(--container-color);
     box-shadow: none;
   }
 
