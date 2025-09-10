@@ -1,0 +1,25 @@
+.faq-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.faq-tabs__tab {
+  padding: .5rem 1rem;
+  background: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background .3s;
+}
+.faq-tabs__tab.active {
+  background: #ffffff;
+  border-bottom: 2px solid #333;
+}
+.faq-content > .faq-category {
+  display: none;
+}
+.faq-content > .faq-category.active {
+  display: block;
+}

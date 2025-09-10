@@ -1,0 +1,69 @@
+/* Общие стили для секции */
+.delivery-section {
+  padding: 3rem 0;
+  background-color: var(--body-color);
+}
+
+.tabs {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tabs__headers {
+  display: flex;
+  border-bottom: 2px solid var(--container-color);
+}
+
+.tabs__header {
+  flex: 1;
+  padding: 1rem;
+  background: none;
+  border: none;
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  color: var(--text-color);
+  cursor: pointer;
+  text-align: center;
+  transition: color 0.25s, border-color 0.25s;
+  border-bottom: 3px solid transparent;
+}
+
+.tabs__header:hover,
+.tabs__header:focus {
+  color: var(--title-color);
+  outline: none;
+}
+
+.tabs__header.active {
+  color: var(--title-color);
+  border-color: var(--title-color);
+}
+
+.tabs__bodies {
+  padding-top: 1.5rem;
+}
+
+.tabs__body {
+  display: none;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.tabs__body.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Адаптив */
+@media (max-width: 600px) {
+  .tabs__headers {
+    flex-direction: column;
+  }
+  .tabs__header {
+    text-align: left;
+    padding: 0.75rem 1rem;
+  }
+}
