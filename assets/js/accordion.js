@@ -1,35 +1,64 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const accordion = document.getElementById("faqAccordion");
-  const items = accordion.querySelectorAll(".accordion-item");
-
-  items.forEach((item) => {
-    const header = item.querySelector(".accordion-header");
-    const content = item.querySelector(".accordion-content");
-
-    header.addEventListener("click", function () {
-      const isActive = item.classList.contains("active");
-
-      items.forEach((el) => {
-        el.classList.remove("active");
-        el.querySelector(".accordion-header").setAttribute("aria-expanded", "false");
-        el.querySelector(".accordion-content").setAttribute("aria-hidden", "true");
-        el.querySelector(".accordion-content").style.maxHeight = null;
-      });
-
-      if (!isActive) {
-        item.classList.add("active");
-        header.setAttribute("aria-expanded", "true");
-        content.setAttribute("aria-hidden", "false");
-        content.style.maxHeight = content.scrollHeight + "px";
-      }
-    });
-
-    // Доступность: поддержка клавиатуры
-    header.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" || e.key === " ") {
+// ИСПРАВЛЕННАЯ ВЕРСИЯ accordion.js
+document.addEventListener('DOMContentLoaded', function() {
+    // Защита от повторной инициализации
+    if (window.accordionInitialized) return;
+    window.accordionInitialized = true;
+    
+    document.addEventListener('click', function(e) {
+        const button = e.target.closest('.accordion-header');
+        if (!button) return;
+        
+        // Убираем строгую проверку активной вкладки
+        const tabBody = button.closest('.tabs__body');
+        if (tabBody && tabBody.hasAttribute('hidden')) return;
+        
         e.preventDefault();
-        header.click();
-      }
+        
+        const accordion = button.closest('.accordion');
+        const contentId = button.getAttribute('aria-controls');
+        const content = document.getElementById(contentId);
+        
+        if (!content || !accordion) return;
+        
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        
+        // Закрываем другие аккордеоны
+        const allButtons = accordion.querySelectorAll('.accordion-header');
+        allButtons.forEach(btn => {
+            if (btn !== button) {
+                btn.setAttribute('aria-expanded', 'false');
+                const otherContentId = btn.getAttribute('aria-controls');
+                const otherContent = document.getElementById(otherContentId);
+                if (otherContent) {
+                    otherContent.setAttribute('aria-hidden', 'true');
+                    otherContent.style.display = 'none';
+                } // ДОБАВИТЬ ЭТУ СКОБКУ!
+                const otherIcon = btn.querySelector('.accordion-icon');
+                if (otherIcon) otherIcon.textContent = '+';
+            } // ДОБАВИТЬ ЭТУ СКОБКУ!
+        });
+        
+        // Переключаем текущий
+        if (isExpanded) {
+            button.setAttribute('aria-expanded', 'false');
+            content.setAttribute('aria-hidden', 'true');
+            content.style.display = 'none';
+            const icon = button.querySelector('.accordion-icon');
+            if (icon) icon.textContent = '+';
+        } else {
+            button.setAttribute('aria-expanded', 'true');
+            content.setAttribute('aria-hidden', 'false');
+            content.style.display = 'block';
+            const icon = button.querySelector('.accordion-icon');
+            if (icon) icon.textContent = '−';
+        } // ДОБАВИТЬ ЭТУ СКОБКУ!
     });
-  });
+    
+    // Клавиатурная поддержка
+    document.addEventListener('keydown', function(e) {
+        if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.accordion-header')) {
+            e.preventDefault();
+            e.target.click();
+        } // ДОБАВИТЬ ЭТУ СКОБКУ!
+    });
 });
