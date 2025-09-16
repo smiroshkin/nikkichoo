@@ -1,69 +1,305 @@
-/* Общие стили для секции */
+/* Общие стили для секции FAQ */
 .delivery-section {
-  padding: 3rem 0;
-  background-color: var(--body-color);
+    padding: 3rem 0;
+    background-color: var(--body-color);
 }
 
 .tabs {
-  max-width: 800px;
-  margin: 0 auto;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+/* Заголовки вкладок */
 .tabs__headers {
-  display: flex;
-  border-bottom: 2px solid var(--container-color);
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid var(--container-color);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 4px;
 }
 
 .tabs__header {
-  flex: 1;
-  padding: 1rem;
-  background: none;
-  border: none;
-  font-size: var(--normal-font-size);
-  font-weight: var(--font-medium);
-  color: var(--text-color);
-  cursor: pointer;
-  text-align: center;
-  transition: color 0.25s, border-color 0.25s;
-  border-bottom: 3px solid transparent;
+    flex: 1;
+    min-width: 120px;
+    padding: 1rem 0.5rem;
+    background: none;
+    border: none;
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    color: var(--text-color);
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    border-radius: 8px 8px 0 0;
+    position: relative;
+    overflow: hidden;
 }
 
-.tabs__header:hover,
-.tabs__header:focus {
-  color: var(--title-color);
-  outline: none;
+.tabs__header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--tab-bg-color, transparent) 0%, var(--tab-bg-light, transparent) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.tabs__header:hover {
+    color: var(--title-color);
+    outline: none;
+    transform: translateY(-2px);
+}
+
+.tabs__header:hover::before {
+    opacity: 0.1;
 }
 
 .tabs__header.active {
-  color: var(--title-color);
-  border-color: var(--title-color);
+    color: var(--title-color);
+    border-color: var(--title-color);
+    background: linear-gradient(135deg, var(--tab-bg-color, var(--container-color)) 0%, var(--tab-bg-light, var(--container-color)) 100%);
 }
 
+.tabs__header.active::before {
+    opacity: 0.15;
+}
+
+/* Цветовые переменные для заголовков вкладок */
+.tabs__header[aria-controls="tab1"] {
+    --tab-bg-color: #e3f2fd;
+    --tab-bg-light: #f3f9ff;
+}
+
+.tabs__header[aria-controls="tab2"] {
+    --tab-bg-color: #f3e5f5;
+    --tab-bg-light: #faf4fb;
+}
+
+.tabs__header[aria-controls="tab3"] {
+    --tab-bg-color: #e8f5e8;
+    --tab-bg-light: #f4fbf4;
+}
+
+.tabs__header[aria-controls="tab4"] {
+    --tab-bg-color: #fff3e0;
+    --tab-bg-light: #fffaf6;
+}
+
+.tabs__header[aria-controls="tab5"] {
+    --tab-bg-color: #ffebee;
+    --tab-bg-light: #fff5f6;
+}
+
+/* Контент вкладок */
 .tabs__bodies {
-  padding-top: 1.5rem;
+    padding-top: 0;
 }
 
 .tabs__body {
-  display: none;
-  animation: fadeIn 0.3s ease-out;
+    display: none;
+    animation: fadeIn 0.4s ease-out;
 }
 
 .tabs__body.active {
-  display: block;
+    display: block;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+    from { 
+        opacity: 0; 
+        transform: translateY(16px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0);
+    }
 }
 
-/* Адаптив */
-@media (max-width: 600px) {
-  .tabs__headers {
-    flex-direction: column;
-  }
-  .tabs__header {
-    text-align: left;
-    padding: 0.75rem 1rem;
-  }
+/* Адаптивный дизайн */
+@media (max-width: 768px) {
+    .tabs {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+    
+    .tabs__headers {
+        flex-direction: column;
+        gap: 2px;
+        border-bottom: none;
+    }
+    
+    .tabs__header {
+        text-align: left;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        border-bottom: none;
+        margin-bottom: 4px;
+    }
+    
+    .tabs__header.active {
+        border: 2px solid var(--title-color);
+    }
+    
+    .delivery-section {
+        padding: 2rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .tabs__header {
+        font-size: var(--small-font-size);
+        padding: 0.6rem 0.8rem;
+    }
+}
+
+/* Улучшенные стили для секции заголовка */
+.section__title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-semi-bold);
+    color: var(--title-color);
+}
+
+@media (max-width: 768px) {
+    .section__title {
+        font-size: var(--h2-font-size);
+        margin-bottom: 2rem;
+    }
+}
+
+
+/* ===== СТИЛИ ДЛЯ FAQ КАРТОЧЕК ===== */
+
+/* Базовые стили карточек */
+.faq-card {
+    background: linear-gradient(135deg, var(--card-color) 0%, var(--card-color-light) 100%);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid var(--card-accent);
+}
+
+.faq-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.faq-card h4 {
+    color: var(--card-accent);
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.faq-card .icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-accent);
+    color: white;
+    border-radius: 50%;
+    font-size: 14px;
+}
+
+/* Цветовые схемы для разных тем */
+.delivery-card {
+    --card-color: #e3f2fd;
+    --card-color-light: #f3f9ff;
+    --card-accent: #1976d2;
+}
+
+.return-card {
+    --card-color: #f3e5f5;
+    --card-color-light: #faf4fb;
+    --card-accent: #7b1fa2;
+}
+
+.size-card {
+    --card-color: #e8f5e8;
+    --card-color-light: #f4fbf4;
+    --card-accent: #388e3c;
+}
+
+.care-card {
+    --card-color: #fff3e0;
+    --card-color-light: #fffaf6;
+    --card-accent: #f57c00;
+}
+
+.health-card {
+    --card-color: #ffebee;
+    --card-color-light: #fff5f6;
+    --card-accent: #d32f2f;
+}
+
+/* Информационные блоки */
+.info-block {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    border-left: 3px solid var(--card-accent);
+}
+
+/* Стили для контента карточек */
+.faq-card ul, 
+.faq-card ol {
+    margin-left: 20px;
+    margin-bottom: 16px;
+}
+
+.faq-card li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.faq-card p {
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.faq-card strong {
+    color: var(--card-accent);
+}
+
+/* Адаптивность для карточек */
+@media (max-width: 768px) {
+    .faq-card {
+        padding: 20px;
+        margin-bottom: 16px;
+    }
+    
+    .faq-card h4 {
+        font-size: 16px;
+    }
+    
+    .faq-card .icon {
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-card {
+        padding: 16px;
+    }
+    
+    .faq-card h4 {
+        font-size: 15px;
+    }
 }

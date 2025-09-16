@@ -29,9 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (next >= headers.length) next = 0;
                 headers[next].focus();
                 activateTab(next);
-            } // ДОБАВИТЬ ЭТУ СКОБКУ!
+            }
         });
     });
 
     activateTab(0);
 });
+
