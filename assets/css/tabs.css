@@ -70,30 +70,14 @@
     opacity: 0.15;
 }
 
-/* Цветовые переменные для заголовков вкладок */
-.tabs__header[aria-controls="tab1"] {
-    --tab-bg-color: #e3f2fd;
-    --tab-bg-light: #f3f9ff;
-}
-
-.tabs__header[aria-controls="tab2"] {
-    --tab-bg-color: #f3e5f5;
-    --tab-bg-light: #faf4fb;
-}
-
-.tabs__header[aria-controls="tab3"] {
-    --tab-bg-color: #e8f5e8;
-    --tab-bg-light: #f4fbf4;
-}
-
-.tabs__header[aria-controls="tab4"] {
-    --tab-bg-color: #fff3e0;
-    --tab-bg-light: #fffaf6;
-}
-
+/* Единая светло-бежевая цветовая схема для всех заголовков вкладок */
+.tabs__header[aria-controls="tab1"],
+.tabs__header[aria-controls="tab2"],
+.tabs__header[aria-controls="tab3"],
+.tabs__header[aria-controls="tab4"],
 .tabs__header[aria-controls="tab5"] {
-    --tab-bg-color: #ffebee;
-    --tab-bg-light: #fff5f6;
+    --tab-bg-color: #e1e1d9;
+    --tab-bg-light: #faf8f3;
 }
 
 /* Контент вкладок */
@@ -174,7 +158,6 @@
     }
 }
 
-
 /* ===== СТИЛИ ДЛЯ FAQ КАРТОЧЕК ===== */
 
 /* Базовые стили карточек */
@@ -215,35 +198,16 @@
     font-size: 14px;
 }
 
-/* Цветовые схемы для разных тем */
-.delivery-card {
-    --card-color: #e3f2fd;
-    --card-color-light: #f3f9ff;
-    --card-accent: #1976d2;
-}
-
-.return-card {
-    --card-color: #f3e5f5;
-    --card-color-light: #faf4fb;
-    --card-accent: #7b1fa2;
-}
-
-.size-card {
-    --card-color: #e8f5e8;
-    --card-color-light: #f4fbf4;
-    --card-accent: #388e3c;
-}
-
-.care-card {
-    --card-color: #fff3e0;
-    --card-color-light: #fffaf6;
-    --card-accent: #f57c00;
-}
-
+/* Единая светло-бежевая цветовая схема для всех карточек */
+.delivery-card,
+.return-card,
+.size-card,
+.care-card,
 .health-card {
-    --card-color: #ffebee;
-    --card-color-light: #fff5f6;
-    --card-accent: #d32f2f;
+    --card-color: #f5f5dc;
+    --card-color-light: #faf8f3;
+    --card-accent: #8b7355;
+    --card-accent-rgb: 139, 115, 85;
 }
 
 /* Информационные блоки */
@@ -303,6 +267,7 @@
         font-size: 15px;
     }
 }
+
 /* Стили для размерной таблицы с диаграммой */
 .size-chart-wrapper {
     display: flex;
@@ -370,12 +335,17 @@
     flex-shrink: 0;
 }
 
+/* Обновленные цвета легенды в бежевых тонах */
 .legend-a {
-    background-color: #ff8c00; /* Оранжевый как на картинке */
+    background-color: #d4a574; /* Темно-бежевый для линии A */
 }
 
 .legend-b {
-    background-color: #ff8c00; /* Оранжевый как на картинке */
+    background-color: #c19a6b; /* Средне-бежевый для линии B */
+}
+
+.legend-c {
+    background-color: #8b7355; /* Темно-коричневый для линии C */
 }
 
 .size-table {
