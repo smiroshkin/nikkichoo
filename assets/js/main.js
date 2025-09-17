@@ -103,8 +103,7 @@ sr.reveal(`.new__card, .brand__img`, {interval: 100})
 sr.reveal(`.collection__explore:nth-child(1)`, {origin: 'right'})
 sr.reveal(`.collection__explore:nth-child(2)`, {origin: 'left'})
 
-
-/*=============== ПОЛНОЭКРАННЫЙ ПРОСМОТР ИЗОБРАЖЕНИЙ ===============*/
+/*=============== ПОЛНОЭКРАННЫЙ ПРОСМОТР ИЗОБРАЖЕНИЙ С ПОДДЕРЖКОЙ СЛАЙДЕРОВ ===============*/
 
 // Создание модального окна для изображения
 const createImageModal = (src, alt, title) => {
@@ -115,7 +114,7 @@ const createImageModal = (src, alt, title) => {
     const modal = document.createElement('div');
     modal.classList.add('img-modal-overlay');
     
-    const productTitle = title || alt || 'Изображение товара';
+    const productTitle = title || alt || 'Изображение товара NikkiChoo';
     
     modal.innerHTML = `
         <div class="img-modal-content">
@@ -179,41 +178,110 @@ const createImageModal = (src, alt, title) => {
     }, 350);
 };
 
-// Инициализация при загрузке DOM
-const initImageModal = () => {
-    // Находим все изображения товаров в разделе "Наличие"
-    const availabilitySection = document.querySelector('#products');
-    if (availabilitySection) {
-        const productImages = availabilitySection.querySelectorAll('.products__img');
+// Функция добавления обработчиков к изображению (улучшенная для слайдеров)
+const addImageModalHandler = (img) => {
+    // Проверяем, что обработчик еще не добавлен
+    if (img.hasAttribute('data-modal-enabled')) {
+        return;
+    }
+    
+    // Отмечаем, что обработчик добавлен
+    img.setAttribute('data-modal-enabled', 'true');
+    
+    // Специальный обработчик для изображений в слайдерах
+    const handleImageClick = (e) => {
+        // ✅ КЛЮЧЕВОЕ ИСПРАВЛЕНИЕ: останавливаем всплытие события
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
         
-        productImages.forEach((img) => {
-            // Добавляем обработчик клика
-            img.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                // Получаем название товара из соседнего элемента
-                const productCard = img.closest('.products__card');
-                const titleElement = productCard ? productCard.querySelector('.products__title') : null;
-                const productTitle = titleElement ? titleElement.textContent.trim() : '';
-                
-                // Открываем модальное окно
-                createImageModal(img.src, img.alt, productTitle);
-            });
-            
-            // Добавляем поддержку клавиатуры
-            img.setAttribute('tabindex', '0');
-            img.setAttribute('role', 'button');
-            img.setAttribute('aria-label', 'Открыть изображение в полном размере');
-            
-            img.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    img.click();
-                }
-            });
+        // Получаем название товара из соседнего элемента
+        const productCard = img.closest('.products__card');
+        const titleElement = productCard ? productCard.querySelector('.products__title') : null;
+        const productTitle = titleElement ? titleElement.textContent.trim() : '';
+        
+        // Открываем модальное окно
+        createImageModal(img.src, img.alt, productTitle);
+        
+        return false; // Дополнительная защита от всплытия
+    };
+    
+    // Добавляем обработчики с высоким приоритетом
+    img.addEventListener('click', handleImageClick, true); // Фаза захвата
+    img.addEventListener('mousedown', (e) => {
+        e.stopPropagation(); // Предотвращаем drag в слайдере
+    }, true);
+    
+    // Добавляем поддержку клавиатуры
+    img.setAttribute('tabindex', '0');
+    img.setAttribute('role', 'button');
+    img.setAttribute('aria-label', 'Открыть изображение в полном размере');
+    
+    img.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            e.stopPropagation();
+            handleImageClick(e);
+        }
+    });
+    
+    // Добавляем стили для указания кликабельности
+    img.style.cursor = 'zoom-in';
+    img.style.position = 'relative';
+    img.style.zIndex = '10';
+};
+
+// Специальная инициализация после загрузки Splide слайдеров
+const initImageModalAfterSplide = () => {
+    // Ждем инициализации всех Splide слайдеров
+    setTimeout(() => {
+        // Находим все изображения товаров, включая те, что в слайдерах
+        const allProductImages = document.querySelectorAll('.products__img');
+        
+        allProductImages.forEach((img) => {
+            addImageModalHandler(img);
+        });
+        
+        console.log(`Инициализировано модальных окон для изображений: ${allProductImages.length}`);
+    }, 1500); // Увеличиваем задержку для гарантированной загрузки слайдеров
+};
+
+// Дополнительная функция для изображений вне слайдеров (раздел "Наличие")
+const initImageModalForStatic = () => {
+    // Находим статичные изображения (не в слайдерах)
+    const staticSection = document.querySelector('#products');
+    if (staticSection) {
+        const staticImages = staticSection.querySelectorAll('.products__img');
+        staticImages.forEach((img) => {
+            addImageModalHandler(img);
         });
     }
 };
 
-// Запускаем инициализацию после загрузки DOM
-document.addEventListener('DOMContentLoaded', initImageModal);
+// Главная функция инициализации
+const initAllImageModals = () => {
+    // 1. Инициализируем статичные изображения сразу
+    initImageModalForStatic();
+    
+    // 2. Инициализируем изображения в слайдерах после их загрузки
+    initImageModalAfterSplide();
+    
+    // 3. Дополнительная инициализация через еще большую задержку
+    setTimeout(() => {
+        const remainingImages = document.querySelectorAll('.products__img:not([data-modal-enabled])');
+        remainingImages.forEach((img) => {
+            addImageModalHandler(img);
+        });
+    }, 3000);
+};
+
+// Запускаем инициализацию
+document.addEventListener('DOMContentLoaded', () => {
+    initAllImageModals();
+});
+
+// Дополнительный запуск после полной загрузки страницы
+window.addEventListener('load', () => {
+    setTimeout(initAllImageModals, 500);
+});
+

@@ -1046,7 +1046,29 @@ const initImageModal = () => {
 };
 
 // Запускаем инициализацию после загрузки DOM
-document.addEventListener('DOMContentLoaded', initImageModal);
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.splide').forEach((el) => {
+        new Splide(el, {
+            type: 'loop',
+            perPage: 1,
+            // ✅ ДОБАВЛЯЕМ НАСТРОЙКИ ДЛЯ РАБОТЫ С МОДАЛЬНЫМИ ОКНАМИ
+            drag: true,          // Разрешаем перетаскивание
+            click: false,        // Отключаем переключение по клику
+            keyboard: false,     // Отключаем клавиатурное управление
+            wheel: false,        // Отключаем управление колесом мыши
+        }).mount();
+    });
+    
+    // ✅ ПОВТОРНАЯ ИНИЦИАЛИЗАЦИЯ МОДАЛЬНЫХ ОКОН ПОСЛЕ SPLIDE
+    setTimeout(() => {
+        if (typeof initAllImageModals === 'function') {
+            initAllImageModals();
+        }
+    }, 1000);
+});
+
+
+
 </script>
 
 
