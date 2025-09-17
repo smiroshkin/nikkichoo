@@ -102,3 +102,118 @@ sr.reveal(`.home__images`, {delay: 600, origin: 'bottom'})
 sr.reveal(`.new__card, .brand__img`, {interval: 100})
 sr.reveal(`.collection__explore:nth-child(1)`, {origin: 'right'})
 sr.reveal(`.collection__explore:nth-child(2)`, {origin: 'left'})
+
+
+/*=============== ПОЛНОЭКРАННЫЙ ПРОСМОТР ИЗОБРАЖЕНИЙ ===============*/
+
+// Создание модального окна для изображения
+const createImageModal = (src, alt, title) => {
+    // Предотвращаем скролл страницы
+    document.body.classList.add('modal-open');
+    
+    // Создаем элементы модального окна
+    const modal = document.createElement('div');
+    modal.classList.add('img-modal-overlay');
+    
+    const productTitle = title || alt || 'Изображение товара';
+    
+    modal.innerHTML = `
+        <div class="img-modal-content">
+            <span class="img-modal-close" tabindex="0" role="button" aria-label="Закрыть изображение">&times;</span>
+            <img src="${src}" alt="${alt || 'Товар NikkiChoo'}" class="img-modal-image" />
+            <div class="img-modal-info">${productTitle}</div>
+        </div>
+    `;
+    
+    // Добавляем модальное окно в DOM
+    document.body.appendChild(modal);
+    
+    // Анимация появления
+    setTimeout(() => {
+        modal.classList.add('show');
+    }, 10);
+    
+    // Функция закрытия модального окна
+    const closeModal = () => {
+        modal.classList.remove('show');
+        setTimeout(() => {
+            if (document.body.contains(modal)) {
+                document.body.removeChild(modal);
+            }
+            document.body.classList.remove('modal-open');
+        }, 300);
+    };
+    
+    // Обработчики событий для закрытия
+    const closeBtn = modal.querySelector('.img-modal-close');
+    
+    // Закрытие по клику на кнопку
+    closeBtn.addEventListener('click', closeModal);
+    
+    // Закрытие по клику на затемненную область
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+    
+    // Закрытие по клавиатуре
+    const handleKeydown = (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
+            document.removeEventListener('keydown', handleKeydown);
+        }
+        if (e.key === 'Enter' || e.key === ' ') {
+            if (e.target === closeBtn) {
+                closeModal();
+                document.removeEventListener('keydown', handleKeydown);
+            }
+        }
+    };
+    
+    document.addEventListener('keydown', handleKeydown);
+    
+    // Фокус на кнопке закрытия для доступности
+    setTimeout(() => {
+        closeBtn.focus();
+    }, 350);
+};
+
+// Инициализация при загрузке DOM
+const initImageModal = () => {
+    // Находим все изображения товаров в разделе "Наличие"
+    const availabilitySection = document.querySelector('#products');
+    if (availabilitySection) {
+        const productImages = availabilitySection.querySelectorAll('.products__img');
+        
+        productImages.forEach((img) => {
+            // Добавляем обработчик клика
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Получаем название товара из соседнего элемента
+                const productCard = img.closest('.products__card');
+                const titleElement = productCard ? productCard.querySelector('.products__title') : null;
+                const productTitle = titleElement ? titleElement.textContent.trim() : '';
+                
+                // Открываем модальное окно
+                createImageModal(img.src, img.alt, productTitle);
+            });
+            
+            // Добавляем поддержку клавиатуры
+            img.setAttribute('tabindex', '0');
+            img.setAttribute('role', 'button');
+            img.setAttribute('aria-label', 'Открыть изображение в полном размере');
+            
+            img.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    img.click();
+                }
+            });
+        });
+    }
+};
+
+// Запускаем инициализацию после загрузки DOM
+document.addEventListener('DOMContentLoaded', initImageModal);

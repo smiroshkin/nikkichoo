@@ -874,3 +874,137 @@ body.dark-theme {
     zoom: 2.3;
   }
 }
+
+/* ===== МОДАЛЬНОЕ ОКНО ДЛЯ ПОЛНОЭКРАННЫХ ИЗОБРАЖЕНИЙ ===== */
+
+/* Курсор увеличения для картинок товаров */
+.products__img {
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+.products__img:hover {
+    transform: scale(1.02);
+}
+
+/* Модальное окно */
+.img-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    cursor: zoom-out;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.img-modal-overlay.show {
+    opacity: 1;
+}
+
+.img-modal-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001;
+}
+
+.img-modal-image {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    z-index: 10000;
+}
+
+.img-modal-overlay.show .img-modal-image {
+    transform: scale(1);
+}
+
+.img-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    z-index: 10002;
+}
+
+.img-modal-close:hover,
+.img-modal-close:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.6);
+    outline: none;
+    transform: scale(1.1);
+}
+
+/* Информация о товаре в модальном окне */
+.img-modal-info {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: var(--small-font-size);
+    white-space: nowrap;
+    backdrop-filter: blur(10px);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .img-modal-content {
+        max-width: 95vw;
+        max-height: 95vh;
+    }
+    
+    .img-modal-close {
+        top: 5px;
+        right: 5px;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 24px;
+    }
+    
+    .img-modal-info {
+        bottom: -50px;
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .img-modal-info {
+        display: none;
+    }
+}
+
+/* Предотвращаем скролл при открытом модальном окне */
+body.modal-open {
+    overflow: hidden;
+}

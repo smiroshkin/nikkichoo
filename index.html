@@ -230,7 +230,7 @@
 
                             <span class="products__price">
                                 Верх - натуральная кожа <br>
-                                Подкладка - мех<br>
+                                Подкладка - натуральный мех<br>
                                 Цвет - под заказ <br>
                                 Размеры - 35-43 <br>
                                 от 20000 р.
@@ -592,7 +592,7 @@
                         </article>
 
                         <article class="products__card swiper-slide">
-                            <img src="assets/img/product2.webp" alt="product image" class="products__img">
+                            <img src="assets/img/product2.webp" alt="Туфли перекрест NikkiChoo, черное серебро, натуральная кожа" class="products__img">
                             <h3 class="products__title">
                                 Туфли перекрест
                             </h3>
@@ -785,8 +785,8 @@
                                 Кеды высокие (зима)
                             </h3>
                             <span class="products__price">
-                                Верх - 50/50% замша/кожа <br>
-                                Подкладка - 50/50% синтетика/шерсть<br>
+                                Верх - 50/50 замша/кожа <br>
+                                Подкладка - 50/50 синтетика/шерсть<br>
                                 Подошва - Мишлен <br>
                                 Цвет - черные<br>
                                 <p style="color:  #008000;">Размеры в наличии: 38, 39</p></b><br>
@@ -800,7 +800,7 @@
                                 Кеды высокие (демисезон)
                             </h3>
                             <span class="products__price">
-                                Верх - 50/50% замша/кожа <br>
+                                Верх - 50/50 замша/кожа <br>
                                 Подкладка - байка<br>
                                 Подошва - облегленная резина<br>
                                 Цвет - темно-синие<br>
@@ -815,8 +815,8 @@
                                 Кеды высокие (зима)
                             </h3>
                             <span class="products__price">
-                                Верх - 50/50% замша/кожа <br>
-                                Подкладка - 50/50% синтетика/шерсть<br>
+                                Верх - 50/50 замша/кожа <br>
+                                Подкладка - 50/50 синтетика/шерсть<br>
                                 Подошва - Мишлен <br>
                                 Цвет - темно-синие<br>
                                 <p style="color:  #008000;">Размеры в наличии: 39</p></b><br>
@@ -830,8 +830,8 @@
                                 Кеды высокие (зима)
                             </h3>
                             <span class="products__price">
-                                Верх - 100% кожа <br>
-                                Подкладка - 50/50% синтетика/шерсть<br>
+                                Верх - натуральная кожа <br>
+                                Подкладка - 50/50 синтетика/шерсть<br>
                                 Подошва - Мишлен <br>
                                 Цвет - черные<br>
                                 <b></b><p style="color:  #008000;">Размеры в наличии: 40</p></b><br>
@@ -842,12 +842,10 @@
                         
                         <article class="products__card swiper-slide">
                             <img src="assets/img/product22.png" alt="product image" class="products__img">
-                            <h3 class="products__title">
-                                Кеды высокие (зима)
-                            </h3>
+                            <h3 class="products__title">Кеды высокие (зима)</h3>
                             <span class="products__price">
-                                Верх - 50/50% кожа лак/замша <br>
-                                Подкладка - 50/50% синтетика/шерсть<br>
+                                Верх - 50/50 кожа лак/замша <br>
+                                Подкладка - 50/50 синтетика/шерсть<br>
                                 Подошва - Мишлен <br>
                                 Цвет - черные<br>
                                 <b></b><p style="color:  #008000;">Размеры в наличии: 39</p></b><br>
@@ -857,12 +855,10 @@
                         
                         <article class="products__card swiper-slide">
                             <img src="assets/img/product23.png" alt="product image" class="products__img">
-                            <h3 class="products__title">
-                                Лоферы на ремешке
-                            </h3>
+                            <h3 class="products__title">Лоферы на ремешке</h3>
                             <span class="products__price">
-                                Верх - 100% кожа <br>
-                                Цвет - черные<br>
+                                Верх - натуральная кожа <br>
+                                Цвет - черный<br>
                                 <b><p style="color:  #008000;">Размеры в наличии: 40</p></b><br>
                                 <span class="products__rub"> 11000 р. </span>
                             </span>
@@ -935,5 +931,124 @@
     });
   });
         </script>
+
+<!--=============== IMAGE MODAL SCRIPT ===============-->
+<script>
+/*=============== ПОЛНОЭКРАННЫЙ ПРОСМОТР ИЗОБРАЖЕНИЙ ===============*/
+
+// Создание модального окна для изображения
+const createImageModal = (src, alt, title) => {
+    // Предотвращаем скролл страницы
+    document.body.classList.add('modal-open');
+    
+    // Создаем элементы модального окна
+    const modal = document.createElement('div');
+    modal.classList.add('img-modal-overlay');
+    
+    const productTitle = title || alt || 'Изображение товара';
+    
+    modal.innerHTML = `
+        <div class="img-modal-content">
+            <span class="img-modal-close" tabindex="0" role="button" aria-label="Закрыть изображение">&times;</span>
+            <img src="${src}" alt="${alt || 'Товар NikkiChoo'}" class="img-modal-image" />
+            <div class="img-modal-info">${productTitle}</div>
+        </div>
+    `;
+    
+    // Добавляем модальное окно в DOM
+    document.body.appendChild(modal);
+    
+    // Анимация появления
+    setTimeout(() => {
+        modal.classList.add('show');
+    }, 10);
+    
+    // Функция закрытия модального окна
+    const closeModal = () => {
+        modal.classList.remove('show');
+        setTimeout(() => {
+            if (document.body.contains(modal)) {
+                document.body.removeChild(modal);
+            }
+            document.body.classList.remove('modal-open');
+        }, 300);
+    };
+    
+    // Обработчики событий для закрытия
+    const closeBtn = modal.querySelector('.img-modal-close');
+    
+    // Закрытие по клику на кнопку
+    closeBtn.addEventListener('click', closeModal);
+    
+    // Закрытие по клику на затемненную область
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+    
+    // Закрытие по клавиатуре
+    const handleKeydown = (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
+            document.removeEventListener('keydown', handleKeydown);
+        }
+        if (e.key === 'Enter' || e.key === ' ') {
+            if (e.target === closeBtn) {
+                closeModal();
+                document.removeEventListener('keydown', handleKeydown);
+            }
+        }
+    };
+    
+    document.addEventListener('keydown', handleKeydown);
+    
+    // Фокус на кнопке закрытия для доступности
+    setTimeout(() => {
+        closeBtn.focus();
+    }, 350);
+};
+
+// Инициализация при загрузке DOM
+const initImageModal = () => {
+    // Находим все изображения товаров в разделе "Наличие"
+    const availabilitySection = document.querySelector('#products');
+    if (availabilitySection) {
+        const productImages = availabilitySection.querySelectorAll('.products__img');
+        
+        productImages.forEach((img) => {
+            // Добавляем обработчик клика
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Получаем название товара из соседнего элемента
+                const productCard = img.closest('.products__card');
+                const titleElement = productCard ? productCard.querySelector('.products__title') : null;
+                const productTitle = titleElement ? titleElement.textContent.trim() : '';
+                
+                // Открываем модальное окно
+                createImageModal(img.src, img.alt, productTitle);
+            });
+            
+            // Добавляем поддержку клавиатуры
+            img.setAttribute('tabindex', '0');
+            img.setAttribute('role', 'button');
+            img.setAttribute('aria-label', 'Открыть изображение в полном размере');
+            
+            img.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    img.click();
+                }
+            });
+        });
+    }
+};
+
+// Запускаем инициализацию после загрузки DOM
+document.addEventListener('DOMContentLoaded', initImageModal);
+</script>
+
+
     </body>
 </html>
