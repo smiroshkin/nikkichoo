@@ -76,8 +76,8 @@
 .tabs__header[aria-controls="tab3"],
 .tabs__header[aria-controls="tab4"],
 .tabs__header[aria-controls="tab5"] {
-    --tab-bg-color: #e1e1d9;
-    --tab-bg-light: #faf8f3;
+    --tab-bg-color: #ffffff;
+    --tab-bg-light: #ffffff;
 }
 
 /* Контент вкладок */
@@ -204,9 +204,9 @@
 .size-card,
 .care-card,
 .health-card {
-    --card-color: #f5f5dc;
-    --card-color-light: #faf8f3;
-    --card-accent: #8b7355;
+    --card-color: #ffffff;
+    --card-color-light: #ffffff;
+    --card-accent: #000000;
     --card-accent-rgb: 139, 115, 85;
 }
 
@@ -386,7 +386,7 @@
 .size-table td {
     padding: 10px 8px;
     text-align: center;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ffffff;
     border-right: 1px solid #f0f0f0;
     font-weight: 500;
 }
