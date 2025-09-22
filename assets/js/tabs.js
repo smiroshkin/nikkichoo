@@ -55,3 +55,25 @@ document.addEventListener('DOMContentLoaded', () => {
     activateTab(0);
   }
 });
+// Простое решение - добавьте в конец страницы перед </body>
+document.addEventListener('DOMContentLoaded', function() {
+    // Находим все ссылки в футере с классом tab-link
+    document.querySelectorAll('.footer__link[href^="#tab"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const tabId = this.getAttribute('href').substring(1);
+            const headerButton = document.getElementById(tabId + '-header');
+            
+            if (headerButton) {
+                headerButton.click(); // Имитируем клик по заголовку таба
+                
+                // Прокрутка к секции
+                setTimeout(() => {
+                    document.querySelector('.delivery-section').scrollIntoView({ 
+                        behavior: 'smooth' 
+                    });
+                }, 100);
+            }
+        });
+    });
+});
