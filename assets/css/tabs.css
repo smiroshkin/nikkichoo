@@ -337,15 +337,15 @@
 
 /* Обновленные цвета легенды в бежевых тонах */
 .legend-a {
-    background-color: #d4a574; /* Темно-бежевый для линии A */
+    background-color: #ede143; /* Темно-бежевый для линии A */
 }
 
 .legend-b {
-    background-color: #d4a574; /* Средне-бежевый для линии B */
+    background-color: #ede143; /* Средне-бежевый для линии B */
 }
 
 .legend-c {
-    background-color: #d4a574; /* Темно-коричневый для линии C */
+    background-color: #ede143; /* Темно-коричневый для линии C */
 }
 
 .size-table {
