@@ -282,7 +282,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     background: white;
-    min-width: 400px;
+    min-width: 390px;
 }
 
 .foot-diagram-container {
@@ -341,11 +341,11 @@
 }
 
 .legend-b {
-    background-color: #c19a6b; /* Средне-бежевый для линии B */
+    background-color: #d4a574; /* Средне-бежевый для линии B */
 }
 
 .legend-c {
-    background-color: #8b7355; /* Темно-коричневый для линии C */
+    background-color: #d4a574; /* Темно-коричневый для линии C */
 }
 
 .size-table {
