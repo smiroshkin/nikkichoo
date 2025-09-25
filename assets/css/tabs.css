@@ -419,7 +419,7 @@
 @media (max-width: 768px) {
     .size-table-container {
         margin: 0;
-        min-width: 300px;
+        min-width: 280px;
     }
     
     .size-table {
